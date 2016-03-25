@@ -20,6 +20,7 @@ extension MainViewController: UITableViewDelegate {
         
         FoundRhymesModel.getRhymeDefinition(foundRhymes[row] as! String, onCompletion: { (responseObject: String) in
             dispatch_async(dispatch_get_main_queue()) {
+                self.inputWord.resignFirstResponder()
                 self.showFormattedAlert(responseObject, title: self.foundRhymes[row] as! String)
             }
         })

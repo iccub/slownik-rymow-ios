@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func searchForRhymes(sender: AnyObject) {
+        self.inputWord.resignFirstResponder()
         guard inputWord.text?.isEmpty == false else {
             return
         }
