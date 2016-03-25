@@ -212,6 +212,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
     alert.setValue(messageText, forKey: "attributedMessage")
     
+    alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.Default) {
+        _ in
+            UIPasteboard.generalPasteboard().string = title
+        }
+    )
     alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
     presentViewController(alert, animated: true, completion: nil)
   }
