@@ -16,6 +16,9 @@
 		0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */; };
 		0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */; };
 		0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */; };
+		4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */; };
+		440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */; };
+		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderButtonView.swift; path = ../BorderButtonView.swift; sourceTree = "<group>"; };
 		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoundRhymesModel.swift; path = ../FoundRhymesModel.swift; sourceTree = "<group>"; };
 		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderTextField.swift; path = ../BorderTextField.swift; sourceTree = "<group>"; };
+		4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DataSource.swift"; sourceTree = "<group>"; };
+		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
+		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				4406332C1CA5476D00DBBFDF /* View */,
 				4406332D1CA5477E00DBBFDF /* Controller */,
 				0A2A69BC1AC02E6500D6BDA9 /* Supporting Files */,
+				440633321CA54AEC00DBBFDF /* Helpers */,
 				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
 			);
 			path = "Slownik Rymow";
@@ -141,8 +148,18 @@
 			isa = PBXGroup;
 			children = (
 				0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */,
+				4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */,
+				440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		440633321CA54AEC00DBBFDF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				440633331CA54B0C00DBBFDF /* Reachibility.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,10 +264,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */,
 				0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */,
 				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
+				440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */,
 				0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */,
+				440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */,
 				0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
