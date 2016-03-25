@@ -3,7 +3,7 @@
 //  Slownik Rymow
 //
 //  Created by bucci on 16.06.2015.
-//  Copyright (c) 2015 Michał Buczek. All rights reserved.
+//  Copyright (c) 2016 Michał Buczek. All rights reserved.
 //
 
 import Foundation
@@ -59,6 +59,8 @@ class FoundRhymesModel {
     
     let rhymeDefinitionURL = "http://sjp.pl/\(word)"
     let escapedRhymeDefinitionURL = rhymeDefinitionURL.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+    
+
     var resultString = ""
     
     guard let address = escapedRhymeDefinitionURL, myURL = NSURL(string: address) else {

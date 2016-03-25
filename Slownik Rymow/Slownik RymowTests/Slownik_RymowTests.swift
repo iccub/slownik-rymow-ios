@@ -3,7 +3,7 @@
 //  Slownik RymowTests
 //
 //  Created by bucci on 23.03.2015.
-//  Copyright (c) 2015 Michał Buczek. All rights reserved.
+//  Copyright (c) 2016 Michał Buczek. All rights reserved.
 //
 
 import UIKit
