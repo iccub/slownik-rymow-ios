@@ -19,6 +19,7 @@
 		4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */; };
 		440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */; };
 		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
+		440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DataSource.swift"; sourceTree = "<group>"; };
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
+		440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */,
 				4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */,
 				440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */,
+				440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */,
+				440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */,
 				0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */,
 				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
