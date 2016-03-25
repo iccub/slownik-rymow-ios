@@ -12,7 +12,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(textCellIdentifier, forIndexPath: indexPath) as UITableViewCell
         
         let row = indexPath.row
-        cell.textLabel?.text = swiftBlogs[row] as? String
+        cell.textLabel?.text = foundRhymes[row] as? String
         
         return cell
     }
@@ -22,7 +22,6 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return swiftBlogs.count
+        return foundRhymes.count
     }
-    
 }

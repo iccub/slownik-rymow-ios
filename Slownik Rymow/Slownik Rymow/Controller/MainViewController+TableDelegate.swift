@@ -18,9 +18,9 @@ extension MainViewController: UITableViewDelegate {
             return
         }
         
-        FoundRhymesModel.getRhymeDefinition(swiftBlogs[row] as! String, onCompletion: { (responseObject: String) in
+        FoundRhymesModel.getRhymeDefinition(foundRhymes[row] as! String, onCompletion: { (responseObject: String) in
             dispatch_async(dispatch_get_main_queue()) {
-                self.showFormattedAlert(responseObject, title: self.swiftBlogs[row] as! String)
+                self.showFormattedAlert(responseObject, title: self.foundRhymes[row] as! String)
             }
         })
     }

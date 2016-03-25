@@ -19,7 +19,7 @@ enum SortMethodSelectedButtonEnum: Int {
     case Random = 1
 }
 
-class MainViewController: UIViewController, UITextFieldDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var rhymeCountStepper: UIStepper!
@@ -29,8 +29,26 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var inputWord: BorderTextField!
     @IBOutlet var searchRhymeButton: BorderButtonView!
     
-    var swiftBlogs = []
+    var foundRhymes = []
     let textCellIdentifier = "TextCell"
+    
+    //MARK: - View controller lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        inputWord.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        inputWord.becomeFirstResponder()
+    }
+    
+    //MARK: - Storyboard actions
     
     @IBAction func rhymeCountStepperValueChanged(sender: UIStepper) {
         rhymeCountLabel.text = "\(Int(sender.value))"
@@ -41,8 +59,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return
         }
         
-        
-        
         guard Reachability.isConnectedToNetwork() else {
             showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
             return
@@ -50,7 +66,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         clearRhymesTable()
         showAlert(setSearchForRhymesAlertMessage(), title: "Szukam rymów", withActivityIndicator: true, cancellable: false)
-        
         
         FoundRhymesModel.getRhymesForWord(self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value)) { (responseObject: NSArray?) in
             
@@ -62,27 +77,24 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            self.swiftBlogs = responseObject!
-            
+            self.foundRhymes = responseObject!
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.inputWord.resignFirstResponder()
                 self.tableView.reloadData()
                 self.dismissViewControllerAnimated(true, completion: nil)
-                
             }
-            
         }
-        
     }
     
+    func clearRhymesTable() {
+        foundRhymes = [String]()
+        tableView.reloadData()
+    }
     
-    
+    //MARK: - Search parameters
     
     func setSearchForRhymesAlertMessage() -> String {
-        
-        
-        
         return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue ? "" : "Szukanie rymów niedokładnych zajmuje więcej czasu"
     }
     
@@ -95,13 +107,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func clearRhymesTable() {
-        swiftBlogs = [String]()
-        tableView.reloadData()
-    }
+    //MARK: Alerts
     
     func showAlert(message: String, title: String, withActivityIndicator: Bool, cancellable: Bool) {
-        
         let pending = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         var views = [String : UIView]()
         
@@ -125,44 +133,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(pending, animated: true, completion: nil)
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        inputWord.delegate = self
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == inputWord.text {
-            textField.resignFirstResponder()
-            return false
-        }
-        return true
-    }
-    
-    //funkcja blokuje wszystkie znaki specjalne poza A-Z i polskimi ogonkami
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let allowedLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĄĘÓŃŚĆŻŹŁąęóńśćżźł"
-        let charset = NSCharacterSet(charactersInString: allowedLetters).invertedSet
-        
-        return string.rangeOfCharacterFromSet(charset) == nil
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        inputWord.becomeFirstResponder()
-    }
-    
-    
     func showFormattedAlert(message: String, title: String) {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = NSTextAlignment.Left
-        
         
         let messageText = NSMutableAttributedString(
             string: message,
@@ -184,8 +157,24 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         presentViewController(alert, animated: true, completion: nil)
     }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == inputWord.text {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
-    
+    //funkcja blokuje wszystkie znaki specjalne poza A-Z i polskimi ogonkami
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let allowedLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĄĘÓŃŚĆŻŹŁąęóńśćżźł"
+        let charset = NSCharacterSet(charactersInString: allowedLetters).invertedSet
+        
+        return string.rangeOfCharacterFromSet(charset) == nil
+    }
 }
 
 
