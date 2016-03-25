@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69BE1AC02E6500D6BDA9 /* AppDelegate.swift */; };
-		0A2A69C11AC02E6500D6BDA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69C01AC02E6500D6BDA9 /* ViewController.swift */; };
+		0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */; };
 		0A2A69C41AC02E6500D6BDA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */; };
 		0A2A69C61AC02E6500D6BDA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A2A69C51AC02E6500D6BDA9 /* Images.xcassets */; };
 		0A2A69C91AC02E6500D6BDA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2A69C71AC02E6500D6BDA9 /* LaunchScreen.xib */; };
@@ -16,7 +16,6 @@
 		0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */; };
 		0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */; };
 		0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */; };
-		0AC82CFA1AE3B6AD0042AFBF /* RhymesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC82CF91AE3B6AD0042AFBF /* RhymesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,17 +32,16 @@
 		0A2A69B91AC02E6500D6BDA9 /* Slownik Rymow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slownik Rymow.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2A69BD1AC02E6500D6BDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2A69BE1AC02E6500D6BDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A2A69C01AC02E6500D6BDA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
 		0A2A69C31AC02E6500D6BDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A2A69C51AC02E6500D6BDA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A2A69C81AC02E6500D6BDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0A2A69CE1AC02E6500D6BDA9 /* Slownik RymowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slownik RymowTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2A69D31AC02E6500D6BDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2A69D41AC02E6500D6BDA9 /* Slownik_RymowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slownik_RymowTests.swift; sourceTree = "<group>"; };
-		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButtonView.swift; sourceTree = "<group>"; };
-		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundRhymesModel.swift; sourceTree = "<group>"; };
-		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextField.swift; sourceTree = "<group>"; };
-		0AC82CF91AE3B6AD0042AFBF /* RhymesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymesTableViewController.swift; sourceTree = "<group>"; };
+		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderButtonView.swift; path = ../BorderButtonView.swift; sourceTree = "<group>"; };
+		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoundRhymesModel.swift; path = ../FoundRhymesModel.swift; sourceTree = "<group>"; };
+		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderTextField.swift; path = ../BorderTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,16 +83,11 @@
 		0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */ = {
 			isa = PBXGroup;
 			children = (
-				0A2A69BE1AC02E6500D6BDA9 /* AppDelegate.swift */,
-				0A2A69C01AC02E6500D6BDA9 /* ViewController.swift */,
-				0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */,
-				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
-				0AC82CF91AE3B6AD0042AFBF /* RhymesTableViewController.swift */,
-				0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */,
-				0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */,
-				0A2A69C51AC02E6500D6BDA9 /* Images.xcassets */,
-				0A2A69C71AC02E6500D6BDA9 /* LaunchScreen.xib */,
+				4406332B1CA5475500DBBFDF /* Model */,
+				4406332C1CA5476D00DBBFDF /* View */,
+				4406332D1CA5477E00DBBFDF /* Controller */,
 				0A2A69BC1AC02E6500D6BDA9 /* Supporting Files */,
+				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
 			);
 			path = "Slownik Rymow";
 			sourceTree = "<group>";
@@ -102,7 +95,10 @@
 		0A2A69BC1AC02E6500D6BDA9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0A2A69C51AC02E6500D6BDA9 /* Images.xcassets */,
 				0A2A69BD1AC02E6500D6BDA9 /* Info.plist */,
+				0A2A69C71AC02E6500D6BDA9 /* LaunchScreen.xib */,
+				0A2A69BE1AC02E6500D6BDA9 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -122,6 +118,31 @@
 				0A2A69D31AC02E6500D6BDA9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4406332B1CA5475500DBBFDF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4406332C1CA5476D00DBBFDF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */,
+				0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4406332D1CA5477E00DBBFDF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,10 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */,
-				0A2A69C11AC02E6500D6BDA9 /* ViewController.swift in Sources */,
+				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
 				0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */,
-				0AC82CFA1AE3B6AD0042AFBF /* RhymesTableViewController.swift in Sources */,
 				0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
