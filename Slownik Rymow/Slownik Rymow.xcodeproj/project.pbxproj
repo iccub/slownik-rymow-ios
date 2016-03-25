@@ -36,16 +36,16 @@
 		0A2A69B91AC02E6500D6BDA9 /* Slownik Rymow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slownik Rymow.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2A69BD1AC02E6500D6BDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2A69BE1AC02E6500D6BDA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../MainViewController.swift; sourceTree = "<group>"; };
+		0A2A69C01AC02E6500D6BDA9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		0A2A69C31AC02E6500D6BDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A2A69C51AC02E6500D6BDA9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A2A69C81AC02E6500D6BDA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0A2A69CE1AC02E6500D6BDA9 /* Slownik RymowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Slownik RymowTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A2A69D31AC02E6500D6BDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2A69D41AC02E6500D6BDA9 /* Slownik_RymowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slownik_RymowTests.swift; sourceTree = "<group>"; };
-		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderButtonView.swift; path = ../BorderButtonView.swift; sourceTree = "<group>"; };
-		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoundRhymesModel.swift; path = ../FoundRhymesModel.swift; sourceTree = "<group>"; };
-		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderTextField.swift; path = ../BorderTextField.swift; sourceTree = "<group>"; };
+		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButtonView.swift; sourceTree = "<group>"; };
+		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundRhymesModel.swift; sourceTree = "<group>"; };
+		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextField.swift; sourceTree = "<group>"; };
 		4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DataSource.swift"; sourceTree = "<group>"; };
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		4406332C1CA5476D00DBBFDF /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */,
 				0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */,
+				0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			children = (
 				440633331CA54B0C00DBBFDF /* Reachibility.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
