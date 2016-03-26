@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
         clearRhymesTable()
         showAlert(setSearchForRhymesAlertMessage(), title: "Szukam rymów", withActivityIndicator: true, cancellable: false)
         
-        RhymeModel.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
+        RhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
             status in
             
             

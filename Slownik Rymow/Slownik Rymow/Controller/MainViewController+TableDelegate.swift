@@ -18,7 +18,7 @@ extension MainViewController: UITableViewDelegate {
             return
         }
         
-        RhymeDefinitionModel.getRhymeDefinition(foundRhymes[row]) { status in
+        RhymeDefinitionManager.getRhymeDefinition(foundRhymes[row]) { status in
             switch status {
             case .Failure(let error):
                 switch error {
