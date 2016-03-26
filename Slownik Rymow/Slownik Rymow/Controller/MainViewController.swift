@@ -121,6 +121,8 @@ class MainViewController: UIViewController {
     
     func showAlert(message: String, title: String, withActivityIndicator: Bool, cancellable: Bool) {
         let pending = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        pending.view.tintColor = UIColor.orangeColor()
+
         var views = [String : UIView]()
         
         if withActivityIndicator == true {
@@ -158,6 +160,8 @@ class MainViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.setValue(messageText, forKey: "attributedMessage")
+        
+        alert.view.tintColor = UIColor.orangeColor()
         
         alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.Default) {
             _ in
