@@ -22,77 +22,96 @@ struct RhymeDefinitionModel {
             return
         }
         
-        RhymeDefinitionService.getWordDefinitionHTML(word) {
-            status in
+        RhymeDefinitionService.getWordDefinitionHTML(word) { status in
             
             switch status {
             case .Failure(let error):
                 completion(status: .Failure(error: error))
             case .Success(let htmlString):
-                var resultString = ""
-                let splitMagicString = "style=\"margin-top: .5em; font-size: medium; max-width: 32em; \">"
-                
-                guard htmlString.componentsSeparatedByString(splitMagicString).count > 1 else {
-                    print("No rhyme definition found")
-                    completion(status: .Failure(error: AppErrors.EmptyResults))
-                    return
+                do {
+                    let resultString = try formatHTMLToDescription(htmlString)
+                    completion(status: .Success(definition: resultString))
+                } catch let error {
+                    if let error = error as? AppErrors {
+                        completion(status: .Failure(error: error))
+                    } else {
+                        print("undefined error, should never launch, throws parse error just in case")
+                        completion(status: .Failure(error: .ParseError))
+                    }
                 }
-                
-                let splitArray = htmlString.componentsSeparatedByString(splitMagicString)
-                
-                //ilosc paragrafow z definicja to count -1
-                for index in 1...(splitArray.count - 1) {
-                    
-                    let paragraph = splitArray[index]
-                    let cuttedParagraph = cutParagraph(paragraph)
-                    
-                    resultString += formatParagraph(cuttedParagraph)
-                    
-                }
-                completion(status: .Success(definition: resultString))
             }
         }
     }
     
-    //Wycina paragraf od <p> do </p>
-    private static func cutParagraph(paragraph: String) -> String {
-        guard let ClosingParagraphMarkRange = paragraph.rangeOfString("</p>") else {
-            print("Cant find closing </p>")
-            return ""
-        }
-        
-        
-        //szukam indexu wycinku tekstu po paragrafie
-        //    let ClosingParagrapshMarkIndex: Int = distance(paragraph.startIndex, ClosingParagraphMarkRange.startIndex)
-        
-        let ClosingParagrapshMarkIndex: Int = (paragraph.startIndex).distanceTo(ClosingParagraphMarkRange.startIndex)
-        
-        
-        
-        return (paragraph as NSString).substringToIndex(ClosingParagrapshMarkIndex)
-    }
-    
-    private static func formatParagraph(paragraph: String) -> String {
-        
+    static func formatHTMLToDescription(html: String) throws -> String {
         var resultString = ""
-        var regex: NSRegularExpression?
         
         do {
-            regex = try NSRegularExpression(pattern: "[0-9]+\\.", options: [])
-        } catch let error as NSError {
-            regex = nil
-            print(error)
+            let splitArray = try splitHtmlToDescriptionParagraphs(html)
+            
+            for paragraph in splitArray {
+                resultString += try formatParagraph(paragraph)
+            }
+        } catch let error as AppErrors {
+            throw error
         }
         
-        guard let reg = regex else {
-            print("Error when initializing regex")
-            return ""
+        return resultString
+    }
+    
+    /** sjp.pl webpage word definitions are split into paragraphs, because polish words often have few meanings */
+    static func splitHtmlToDescriptionParagraphs(html: String) throws -> [String]{
+        //each relevant paragraph has style like this, so I'm searching for its occurences in html source
+        let splitMagicString = "style=\"margin-top: .5em; font-size: medium; max-width: 32em; \">"
+        var sectionsArray = html.componentsSeparatedByString(splitMagicString)
+        
+        guard sectionsArray.count > 1 else {
+            throw AppErrors.EmptyResults
         }
         
-        //jak pierwszy znak to cyfra to szukam kropki i zamieniam wszystko na myslnik zeby bylo spojnie
-        // a jak nie ma cyfry to dodaje myslnik od razu
-        let stringWithDashes = reg.matchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count)).count > 0
-            ? reg.stringByReplacingMatchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count), withTemplate: "-") : "- \(paragraph)"
+        //first part of split is junk - all the html body before first occurence of paragraph with word description so I remove it here
+        sectionsArray.removeFirst()
+        
+        var resultArray = [RhymeDefinition]()
+        do {
+            for section in sectionsArray {
+                try resultArray.append(cutParagraph(section))
+            }
+        } catch {
+            throw AppErrors.ParseError
+        }
+        
+        return resultArray
+    }
+    
+    private static func cutParagraph(paragraph: String) throws -> String {
+        guard let closingParagraphRange = paragraph.rangeOfString("</p>") else {
+            throw AppErrors.ParseError
+        }
+        
+        return paragraph.substringToIndex(closingParagraphRange.startIndex)
+    }
+    
+    /** There are 2 types of definitions in sjp.pl website:
+     numbered list when there is few definitions under one context
+     and regular text when there is only one definition. This methods both so they are shown to user in standarized manner, with dashes for each definition */
+    private static func formatParagraph(paragraph: String) throws -> String{
+        
+        var resultString = ""
+        var numberRegex: NSRegularExpression?
+        
+        do {
+            numberRegex = try NSRegularExpression(pattern: "[0-9]+\\.", options: [])
+        } catch {
+            throw AppErrors.ParseError
+        }
+        
+        guard let regex = numberRegex else {
+            throw AppErrors.ParseError
+        }
+        
+        let stringWithDashes = regex.matchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count)).count > 0
+            ? regex.stringByReplacingMatchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count), withTemplate: "-") : "- \(paragraph)"
         
         resultString += replaceWhiteSpaces(stringWithDashes)
         resultString += "\n"
@@ -106,7 +125,4 @@ struct RhymeDefinitionModel {
             .stringByReplacingOccurrencesOfString("&quot;", withString: "\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
         
     }
-    
-    
-    
 }
