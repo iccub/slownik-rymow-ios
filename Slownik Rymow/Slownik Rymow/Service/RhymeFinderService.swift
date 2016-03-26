@@ -44,8 +44,6 @@ struct RhymeFinderService {
                 return
             }
             
-            print(json)
-            
             completion(status: .Success(json: json))
         }
     }

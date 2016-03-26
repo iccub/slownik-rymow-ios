@@ -20,9 +20,8 @@
 		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
 		440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */; };
 		44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */; };
-		44A9BB741CA55C490094F4B8 /* RhymeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeModel.swift */; };
+		44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */; };
 		44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */; };
-		44A9BB781CA55F5A0094F4B8 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */; };
 		44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */; };
 		44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */; };
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
@@ -60,9 +59,8 @@
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderService.swift; sourceTree = "<group>"; };
-		44A9BB731CA55C490094F4B8 /* RhymeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeModel.swift; sourceTree = "<group>"; };
+		44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderModel.swift; sourceTree = "<group>"; };
 		44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionModel.swift; sourceTree = "<group>"; };
-		44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
 		44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionService.swift; sourceTree = "<group>"; };
 		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
@@ -157,7 +155,7 @@
 		4406332B1CA5475500DBBFDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				44A9BB731CA55C490094F4B8 /* RhymeModel.swift */,
+				44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */,
 				44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */,
 			);
 			path = Model;
@@ -187,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				440633331CA54B0C00DBBFDF /* Reachibility.swift */,
-				44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */,
 				44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */,
 				44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */,
 			);
@@ -385,8 +382,7 @@
 				4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */,
 				44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */,
 				440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */,
-				44A9BB781CA55F5A0094F4B8 /* SearchParameters.swift in Sources */,
-				44A9BB741CA55C490094F4B8 /* RhymeModel.swift in Sources */,
+				44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */,
 				44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */,
 				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
