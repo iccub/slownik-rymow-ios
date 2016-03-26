@@ -33,7 +33,7 @@ struct RhymeDefinitionManager {
                 completion(status: .Failure(error: error))
             case .Success(let htmlString):
                 do {
-                    let resultString = try self.formatHTMLToDescription(htmlString)
+                    let resultString = try self.formatHTMLToDescription(htmlString, word: word)
                     completion(status: .Success(definition: resultString))
                 } catch let error {
                     if let error = error as? AppErrors {
@@ -47,11 +47,11 @@ struct RhymeDefinitionManager {
         }
     }
     
-    func formatHTMLToDescription(html: String) throws -> String {
+    func formatHTMLToDescription(html: String, word: String) throws -> String {
         var resultString = ""
         
         do {
-            let splitArray = try splitHtmlToDescriptionParagraphs(html)
+            let splitArray = try splitHtmlToDescriptionParagraphs(html, word: word)
             
             for paragraph in splitArray {
                 resultString += try formatParagraph(paragraph)
@@ -64,13 +64,13 @@ struct RhymeDefinitionManager {
     }
     
     /** sjp.pl webpage word definitions are split into paragraphs, because polish words often have few meanings */
-    func splitHtmlToDescriptionParagraphs(html: String) throws -> [String]{
+    func splitHtmlToDescriptionParagraphs(html: String, word: String) throws -> [String]{
         //each relevant paragraph has style like this, so I'm searching for its occurences in html source
         let splitMagicString = "style=\"margin-top: .5em; font-size: medium; max-width: 32em; \">"
         var sectionsArray = html.componentsSeparatedByString(splitMagicString)
         
         guard sectionsArray.count > 1 else {
-            throw AppErrors.EmptyResults
+            throw AppErrors.NoDefinitionsFound
         }
         
         //first part of split is junk - all the html body before first occurence of paragraph with word description so I remove it here

@@ -35,7 +35,7 @@ struct RhymeFinderService {
             let json = JSON(data)
             
             guard !json.isEmpty else {
-                completion(status: .Failure(error: .EmptyResults))
+                completion(status: .Failure(error: .NoRhymesFound))
                 return
             }
             
@@ -43,6 +43,8 @@ struct RhymeFinderService {
                 completion(status: .Failure(error: AppErrors.ParseError))
                 return
             }
+            
+            print(json)
             
             completion(status: .Success(json: json))
         }

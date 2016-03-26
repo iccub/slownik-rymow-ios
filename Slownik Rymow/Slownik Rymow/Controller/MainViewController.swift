@@ -32,8 +32,11 @@ class MainViewController: UIViewController {
     var foundRhymes = [FoundRhyme]()
     let textCellIdentifier = "TextCell"
     
+    //MARK: - Dependency injection
+    
     var rhymeDefinitionManager = RhymeDefinitionManager()
     var rhymeFinderManager = RhymeFinderManager()
+    var alertFactory: AlertViewFactory?
     
     //MARK: - View controller lifecycle
     
@@ -43,6 +46,8 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         inputWord.delegate = self
+        
+        alertFactory = AlertViewFactory(vc: self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -64,26 +69,16 @@ class MainViewController: UIViewController {
         }
         
         clearRhymesTable()
-        showAlert(setSearchForRhymesAlertMessage(), title: "Szukam rymów", withActivityIndicator: true, cancellable: false)
+        alertFactory?.showLoadingAlert(arePreciseRhymesBeingSearched())
         
         rhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
             status in
-            
             
             switch status {
             case .Failure(let error):
                 print("error")
                 self.dismissViewControllerAnimated(true) {
-                    switch error {
-                    case .NotConnectedToNetworkError:
-                        self.showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
-                    case .EmptyResults:
-                        self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
-                    default:
-                        print("default clause, should never launch")
-                        
-                    }
-                    
+                    self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercaseString)
                 }
             case .Success(let foundRhymesList):
                 self.foundRhymes = foundRhymesList
@@ -101,8 +96,8 @@ class MainViewController: UIViewController {
     
     //MARK: - Search parameters
     
-    func setSearchForRhymesAlertMessage() -> String {
-        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue ? "" : "Szukanie rymów niedokładnych zajmuje więcej czasu"
+    func arePreciseRhymesBeingSearched() -> Bool {
+        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue
     }
     
     func setRhymePrecisionParam() -> String {
@@ -115,61 +110,6 @@ class MainViewController: UIViewController {
     func setSortOrderParam() -> String {
         return rhymeSortOrderSegmentedControl.selectedSegmentIndex == SortMethodSelectedButtonEnum.Alphabetical.rawValue ? "A" : "R"
         
-    }
-    
-    //MARK: Alerts
-    
-    func showAlert(message: String, title: String, withActivityIndicator: Bool, cancellable: Bool) {
-        let pending = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        pending.view.tintColor = UIColor.orangeColor()
-
-        var views = [String : UIView]()
-        
-        if withActivityIndicator == true {
-            let indicator = UIActivityIndicatorView()
-            indicator.translatesAutoresizingMaskIntoConstraints = false
-            pending.view.addSubview(indicator)
-            indicator.userInteractionEnabled = false
-            indicator.startAnimating()
-            
-            views = ["pending" : pending.view, "indicator" : indicator]
-            var constraints = NSLayoutConstraint.constraintsWithVisualFormat("V:[indicator]-(-50)-|", options: [], metrics: nil, views: views)
-            constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[indicator]|", options: [], metrics: nil, views: views)
-            pending.view.addConstraints(constraints)
-        }
-        
-        if cancellable {
-            pending.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        }
-        
-        self.presentViewController(pending, animated: true, completion: nil)
-    }
-    
-    func showFormattedAlert(message: String, title: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Left
-        
-        let messageText = NSMutableAttributedString(
-            string: message,
-            attributes: [
-                NSParagraphStyleAttributeName: paragraphStyle,
-                NSFontAttributeName : UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
-                NSForegroundColorAttributeName : UIColor.blackColor()
-            ]
-        )
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.setValue(messageText, forKey: "attributedMessage")
-        
-        alert.view.tintColor = UIColor.orangeColor()
-        
-        alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.Default) {
-            _ in
-            UIPasteboard.generalPasteboard().string = title
-            }
-        )
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
     }
 }
 

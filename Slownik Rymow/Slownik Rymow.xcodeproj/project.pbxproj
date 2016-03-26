@@ -27,6 +27,7 @@
 		44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */; };
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
 		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
+		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
 		F256EC8B6EC42B52019C967B /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionService.swift; sourceTree = "<group>"; };
 		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
 		44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderManager.swift; sourceTree = "<group>"; };
+		44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewFactory.swift; sourceTree = "<group>"; };
 		FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +189,7 @@
 				440633331CA54B0C00DBBFDF /* Reachibility.swift */,
 				44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */,
 				44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */,
+				44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
 				440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */,
 				44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */,
+				44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */,
 				0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */,
 				44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */,
 				440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */,

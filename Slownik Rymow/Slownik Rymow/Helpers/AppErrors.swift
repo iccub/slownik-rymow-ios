@@ -14,5 +14,6 @@ enum AppErrors: ErrorType {
     /** Thrown when found rhymes JSON are wrong or rhyme description was not properly parsed */
     case ParseError
     /** Thrown if found rhymes list is empty or no rhyme definition is found */
-    case EmptyResults
+    case NoRhymesFound
+    case NoDefinitionsFound
 }
