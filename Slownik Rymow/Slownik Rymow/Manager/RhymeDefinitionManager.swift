@@ -14,20 +14,26 @@ enum RhymeDefinitionManagerStatus {
 }
 
 struct RhymeDefinitionManager {
-    static func getRhymeDefinition(word: String, completion: (status: RhymeDefinitionManagerStatus) -> Void){
+    let rhymeDefinitionService: RhymeDefinitionService
+    
+    init(rhymeDefinitionService: RhymeDefinitionService = RhymeDefinitionService()) {
+        self.rhymeDefinitionService = rhymeDefinitionService
+    }
+    
+    func getRhymeDefinition(word: String, completion: (status: RhymeDefinitionManagerStatus) -> Void){
         guard Reachability.isConnectedToNetwork() else {
             completion(status: .Failure(error: .NotConnectedToNetworkError))
             return
         }
         
-        RhymeDefinitionService.getWordDefinitionHTML(word) { status in
+        rhymeDefinitionService.getWordDefinitionHTML(word) { status in
             
             switch status {
             case .Failure(let error):
                 completion(status: .Failure(error: error))
             case .Success(let htmlString):
                 do {
-                    let resultString = try formatHTMLToDescription(htmlString)
+                    let resultString = try self.formatHTMLToDescription(htmlString)
                     completion(status: .Success(definition: resultString))
                 } catch let error {
                     if let error = error as? AppErrors {
@@ -41,7 +47,7 @@ struct RhymeDefinitionManager {
         }
     }
     
-    static func formatHTMLToDescription(html: String) throws -> String {
+    func formatHTMLToDescription(html: String) throws -> String {
         var resultString = ""
         
         do {
@@ -58,7 +64,7 @@ struct RhymeDefinitionManager {
     }
     
     /** sjp.pl webpage word definitions are split into paragraphs, because polish words often have few meanings */
-    static func splitHtmlToDescriptionParagraphs(html: String) throws -> [String]{
+    func splitHtmlToDescriptionParagraphs(html: String) throws -> [String]{
         //each relevant paragraph has style like this, so I'm searching for its occurences in html source
         let splitMagicString = "style=\"margin-top: .5em; font-size: medium; max-width: 32em; \">"
         var sectionsArray = html.componentsSeparatedByString(splitMagicString)
@@ -82,7 +88,7 @@ struct RhymeDefinitionManager {
         return resultArray
     }
     
-    private static func cutParagraph(paragraph: String) throws -> String {
+    private func cutParagraph(paragraph: String) throws -> String {
         guard let closingParagraphRange = paragraph.rangeOfString("</p>") else {
             throw AppErrors.ParseError
         }
@@ -93,7 +99,7 @@ struct RhymeDefinitionManager {
     /** There are 2 types of definitions in sjp.pl website:
      numbered list when there is few definitions under one context
      and regular text when there is only one definition. This methods both so they are shown to user in standarized manner, with dashes for each definition */
-    private static func formatParagraph(paragraph: String) throws -> String{
+    private func formatParagraph(paragraph: String) throws -> String{
         
         var resultString = ""
         var numberRegex: NSRegularExpression?
@@ -117,7 +123,7 @@ struct RhymeDefinitionManager {
         return resultString
     }
     
-    private static func replaceWhiteSpaces(text: String) -> String {
+    private func replaceWhiteSpaces(text: String) -> String {
         return text.stringByReplacingOccurrencesOfString("<br />", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
             .stringByReplacingOccurrencesOfString("&nbsp", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
             .stringByReplacingOccurrencesOfString("&quot;", withString: "\"", options: NSStringCompareOptions.LiteralSearch, range: nil)

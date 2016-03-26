@@ -19,7 +19,7 @@
 		440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */; };
 		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
 		440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */; };
-		44A9BB721CA55BFB0094F4B8 /* RhymesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB711CA55BFB0094F4B8 /* RhymesService.swift */; };
+		44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */; };
 		44A9BB741CA55C490094F4B8 /* RhymeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeModel.swift */; };
 		44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */; };
 		44A9BB781CA55F5A0094F4B8 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */; };
@@ -58,7 +58,7 @@
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
-		44A9BB711CA55BFB0094F4B8 /* RhymesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymesService.swift; sourceTree = "<group>"; };
+		44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderService.swift; sourceTree = "<group>"; };
 		44A9BB731CA55C490094F4B8 /* RhymeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeModel.swift; sourceTree = "<group>"; };
 		44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionModel.swift; sourceTree = "<group>"; };
 		44A9BB771CA55F5A0094F4B8 /* SearchParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
@@ -194,7 +194,7 @@
 		44A9BB701CA55BBA0094F4B8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				44A9BB711CA55BFB0094F4B8 /* RhymesService.swift */,
+				44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */,
 				44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */,
 			);
 			path = Service;
@@ -394,7 +394,7 @@
 				440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */,
 				0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */,
 				44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */,
-				44A9BB721CA55BFB0094F4B8 /* RhymesService.swift in Sources */,
+				44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

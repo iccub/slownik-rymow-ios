@@ -15,9 +15,9 @@ enum RhymesServiceStatus {
     case Failure(error: AppErrors)
 }
 
-struct RhymesService {
+struct RhymeFinderService {
     
-    static func getRhymes(word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int, completion: (status: RhymesServiceStatus) -> Void) {
+    func getRhymes(word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int, completion: (status: RhymesServiceStatus) -> Void) {
         let endPoint = "http://178.62.220.64/wbs/findRhymes.php"
         
         let params: [String: AnyObject] = ["rhyme_precision": rhymePrecision,

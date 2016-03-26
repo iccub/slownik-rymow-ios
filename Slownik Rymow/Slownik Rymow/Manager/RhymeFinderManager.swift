@@ -17,13 +17,19 @@ enum RhymeFinderManagerStatus {
 
 struct RhymeFinderManager {
     
-    static func getRhymesWithParameters(parameters: SearchParameters, completion: (status: RhymeFinderManagerStatus) -> Void) {
+    let rhymeFinderService: RhymeFinderService
+    
+    init(rhymesService: RhymeFinderService = RhymeFinderService()) {
+        self.rhymeFinderService = rhymesService
+    }
+    
+    func getRhymesWithParameters(parameters: SearchParameters, completion: (status: RhymeFinderManagerStatus) -> Void) {
         guard Reachability.isConnectedToNetwork() else {
             completion(status: .Failure(error: .NotConnectedToNetworkError))
             return
         }
         
-        RhymesService.getRhymes(parameters.word, sortMethod: parameters.sortMethod, rhymePrecision: parameters.rhymePrecision, rhymeLenght: parameters.rhymeLenght) {
+        rhymeFinderService.getRhymes(parameters.word, sortMethod: parameters.sortMethod, rhymePrecision: parameters.rhymePrecision, rhymeLenght: parameters.rhymeLenght) {
             status in
             
             switch status {
