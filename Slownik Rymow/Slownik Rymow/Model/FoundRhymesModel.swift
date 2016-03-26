@@ -12,49 +12,6 @@ typealias ServiceResponse = (NSArray?) -> Void
 
 
 class FoundRhymesModel {
-  static func getRhymesForWord(word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int, onCompletion: ServiceResponse){
-    
-    let request = prepareHTTPRequest(word, sortMethod: sortMethod, rhymePrecision: rhymePrecision, rhymeLenght: rhymeLenght)
-    let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-      data, response, error in
-      
-      if error != nil{
-        print("error=\(error)")
-        return
-      }
-      
-      do {
-        let jsonObject =  try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! NSArray
-        var rhymeArray = [String]()
-        
-        for elem: AnyObject in jsonObject {
-          let name = elem["word"] as! String
-          rhymeArray.append(name)
-        }
-        
-        onCompletion(rhymeArray)
-        
-        
-      } catch {
-        print("parsing json error")
-        onCompletion(nil)
-      }
-    }
-    task.resume()
-    
-  }
-  
-  private static func prepareHTTPRequest(word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int) -> NSMutableURLRequest {
-    let request = NSMutableURLRequest(URL: NSURL(string: "http://178.62.220.64/wbs/findRhymes.php")!)
-    request.HTTPMethod = "POST"
-    let postString = "rhyme_precision=\(rhymePrecision)&sort_method=\(sortMethod)&rhyme_length=\(rhymeLenght)&search_word=\(word)"
-    request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-    
-    return request
-  }
-  
-  
-  
   static func getRhymeDefinition(word: String, onCompletion: (String) -> Void){
     
     let rhymeDefinitionURL = "http://sjp.pl/\(word)"

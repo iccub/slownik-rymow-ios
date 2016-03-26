@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
     @IBOutlet var inputWord: BorderTextField!
     @IBOutlet var searchRhymeButton: BorderButtonView!
     
-    var foundRhymes = []
+    var foundRhymes = [FoundRhyme]()
     let textCellIdentifier = "TextCell"
     
     //MARK: - View controller lifecycle
@@ -60,30 +60,30 @@ class MainViewController: UIViewController {
             return
         }
         
-        guard Reachability.isConnectedToNetwork() else {
-            showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
-            return
-        }
-        
         clearRhymesTable()
         showAlert(setSearchForRhymesAlertMessage(), title: "Szukam rymów", withActivityIndicator: true, cancellable: false)
         
-        FoundRhymesModel.getRhymesForWord(self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value)) { (responseObject: NSArray?) in
+        RhymeModel.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
+            status in
             
-            if responseObject == nil {
-                dispatch_async(dispatch_get_main_queue()) {
+            self.dismissViewControllerAnimated(true) {
+                switch status {
+                case .Failure(let error):
+                    print("error")
+                    if error == .NotConnectedToNetworkError {
+                        self.showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
+                    }
+                case .Success(let foundRhymesList):
+                    print("sukcesss")
+                    guard foundRhymesList.count > 0 else {
+                        self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
+                        return
+                    }
+                    
+                    self.foundRhymes = foundRhymesList
+                    self.tableView.reloadData()
                     self.dismissViewControllerAnimated(true, completion: nil)
-                    self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
                 }
-                return
-            }
-            
-            self.foundRhymes = responseObject!
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                self.inputWord.resignFirstResponder()
-                self.tableView.reloadData()
-                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
     }
@@ -100,7 +100,10 @@ class MainViewController: UIViewController {
     }
     
     func setRhymePrecisionParam() -> String {
+        print(RhymePrecisionSelectedButtonEnum.init(rawValue: 0)) // to daje dobry enum
+        
         return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue ? "D" : "N"
+        
     }
     
     func setSortOrderParam() -> String {
