@@ -18,11 +18,21 @@ extension MainViewController: UITableViewDelegate {
             return
         }
         
-        FoundRhymesModel.getRhymeDefinition(foundRhymes[row] as! String, onCompletion: { (responseObject: String) in
-            dispatch_async(dispatch_get_main_queue()) {
+        RhymeDefinitionModel.getRhymeDefinition(foundRhymes[row]) { status in
+            switch status {
+            case .Failure(let error):
+                switch error {
+                case .EmptyResults:
+                    self.showAlert("Brak definicji w słowniku", title: self.foundRhymes[row], withActivityIndicator: false, cancellable: true)
+                case .NotConnectedToNetworkError:
+                    self.showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
+                default:
+                    print("default clause to satisfy enum, should never launch")
+                }
+            case .Success(let rhymeDefinition):
                 self.inputWord.resignFirstResponder()
-                self.showFormattedAlert(responseObject, title: self.foundRhymes[row] as! String)
+                self.showFormattedAlert(rhymeDefinition, title: self.foundRhymes[row])
             }
-        })
+        }
     }
 }

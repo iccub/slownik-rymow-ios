@@ -66,25 +66,27 @@ class MainViewController: UIViewController {
         RhymeModel.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
             status in
             
-            self.dismissViewControllerAnimated(true) {
-                switch status {
-                case .Failure(let error):
-                    print("error")
+            
+            switch status {
+            case .Failure(let error):
+                print("error")
+                self.dismissViewControllerAnimated(true) {
                     if error == .NotConnectedToNetworkError {
                         self.showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
                     }
-                case .Success(let foundRhymesList):
-                    print("sukcesss")
-                    guard foundRhymesList.count > 0 else {
-                        self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
-                        return
-                    }
-                    
-                    self.foundRhymes = foundRhymesList
-                    self.tableView.reloadData()
-                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
+            case .Success(let foundRhymesList):
+                print("sukcesss")
+                guard foundRhymesList.count > 0 else {
+                    self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
+                    return
+                }
+                
+                self.foundRhymes = foundRhymesList
+                self.tableView.reloadData()
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
+            
         }
     }
     
