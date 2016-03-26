@@ -71,17 +71,18 @@ class MainViewController: UIViewController {
             case .Failure(let error):
                 print("error")
                 self.dismissViewControllerAnimated(true) {
-                    if error == .NotConnectedToNetworkError {
+                    switch error {
+                    case .NotConnectedToNetworkError:
                         self.showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
+                    case .EmptyResults:
+                        self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
+                    default:
+                        print("default clause, should never launch")
+                        
                     }
+                    
                 }
             case .Success(let foundRhymesList):
-                print("sukcesss")
-                guard foundRhymesList.count > 0 else {
-                    self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
-                    return
-                }
-                
                 self.foundRhymes = foundRhymesList
                 self.tableView.reloadData()
                 self.dismissViewControllerAnimated(true, completion: nil)

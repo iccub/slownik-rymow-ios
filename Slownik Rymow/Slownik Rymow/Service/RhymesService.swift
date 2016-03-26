@@ -34,6 +34,11 @@ struct RhymesService {
             
             let json = JSON(data)
             
+            guard !json.isEmpty else {
+                completion(status: .Failure(error: .EmptyResults))
+                return
+            }
+            
             guard json.error == nil else {
                 completion(status: .Failure(error: AppErrors.ParseError))
                 return
