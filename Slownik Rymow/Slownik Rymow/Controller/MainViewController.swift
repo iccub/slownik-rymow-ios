@@ -9,16 +9,6 @@
 import UIKit
 import SystemConfiguration
 
-enum RhymePrecisionSelectedButtonEnum: Int {
-    case PreciseRhymes = 0
-    case NonPreciseRhymes = 1
-}
-
-enum SortMethodSelectedButtonEnum: Int {
-    case Alphabetical = 0
-    case Random = 1
-}
-
 class MainViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
@@ -29,8 +19,14 @@ class MainViewController: UIViewController {
     @IBOutlet var inputWord: BorderTextField!
     @IBOutlet var searchRhymeButton: BorderButtonView!
     
-    var foundRhymes = []
+    var foundRhymes = [FoundRhyme]()
     let textCellIdentifier = "TextCell"
+    
+    //MARK: - Dependency injection
+    
+    var rhymeDefinitionManager = RhymeDefinitionManager()
+    var rhymeFinderManager = RhymeFinderManager()
+    var alertFactory: AlertViewFactory?
     
     //MARK: - View controller lifecycle
     
@@ -40,6 +36,8 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         inputWord.delegate = self
+        
+        alertFactory = AlertViewFactory(vc: self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -60,31 +58,23 @@ class MainViewController: UIViewController {
             return
         }
         
-        guard Reachability.isConnectedToNetwork() else {
-            showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
-            return
-        }
-        
         clearRhymesTable()
-        showAlert(setSearchForRhymesAlertMessage(), title: "Szukam rymów", withActivityIndicator: true, cancellable: false)
+        alertFactory?.showLoadingAlert(arePreciseRhymesBeingSearched())
         
-        FoundRhymesModel.getRhymesForWord(self.inputWord.text!.lowercaseString, sortMethod: setSortOrderParam(), rhymePrecision: setRhymePrecisionParam(), rhymeLenght: Int(self.rhymeCountStepper.value)) { (responseObject: NSArray?) in
+        rhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: selectedSortOrder(), rhymePrecision: selectedRhymePrecision(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
+            status in
             
-            if responseObject == nil {
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                    self.showAlert("Brak rymów do słowa \(self.inputWord.text!)", title: "Brak wyników", withActivityIndicator: false, cancellable: true)
+            switch status {
+            case .Failure(let error):
+                self.dismissViewControllerAnimated(true) {
+                    self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercaseString)
                 }
-                return
-            }
-            
-            self.foundRhymes = responseObject!
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                self.inputWord.resignFirstResponder()
+            case .Success(let foundRhymesList):
+                self.foundRhymes = foundRhymesList
                 self.tableView.reloadData()
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
+            
         }
     }
     
@@ -95,74 +85,15 @@ class MainViewController: UIViewController {
     
     //MARK: - Search parameters
     
-    func setSearchForRhymesAlertMessage() -> String {
-        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue ? "" : "Szukanie rymów niedokładnych zajmuje więcej czasu"
+    func arePreciseRhymesBeingSearched() -> Bool {
+        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecision.PreciseRhymes.segmentedControlIndex
     }
     
-    func setRhymePrecisionParam() -> String {
-        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecisionSelectedButtonEnum.PreciseRhymes.rawValue ? "D" : "N"
+    func selectedRhymePrecision() -> String {
+        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecision.PreciseRhymes.segmentedControlIndex ? RhymePrecision.PreciseRhymes.parameterValue : RhymePrecision.NonPreciseRhymes.parameterValue
     }
     
-    func setSortOrderParam() -> String {
-        return rhymeSortOrderSegmentedControl.selectedSegmentIndex == SortMethodSelectedButtonEnum.Alphabetical.rawValue ? "A" : "R"
-        
-    }
-    
-    //MARK: Alerts
-    
-    func showAlert(message: String, title: String, withActivityIndicator: Bool, cancellable: Bool) {
-        let pending = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        var views = [String : UIView]()
-        
-        if withActivityIndicator == true {
-            let indicator = UIActivityIndicatorView()
-            indicator.translatesAutoresizingMaskIntoConstraints = false
-            pending.view.addSubview(indicator)
-            indicator.userInteractionEnabled = false
-            indicator.startAnimating()
-            
-            views = ["pending" : pending.view, "indicator" : indicator]
-            var constraints = NSLayoutConstraint.constraintsWithVisualFormat("V:[indicator]-(-50)-|", options: [], metrics: nil, views: views)
-            constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[indicator]|", options: [], metrics: nil, views: views)
-            pending.view.addConstraints(constraints)
-        }
-        
-        if cancellable {
-            pending.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        }
-        
-        self.presentViewController(pending, animated: true, completion: nil)
-    }
-    
-    func showFormattedAlert(message: String, title: String) {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Left
-        
-        let messageText = NSMutableAttributedString(
-            string: message,
-            attributes: [
-                NSParagraphStyleAttributeName: paragraphStyle,
-                NSFontAttributeName : UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
-                NSForegroundColorAttributeName : UIColor.blackColor()
-            ]
-        )
-        
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.setValue(messageText, forKey: "attributedMessage")
-        
-        alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.Default) {
-            _ in
-            UIPasteboard.generalPasteboard().string = title
-            }
-        )
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        presentViewController(alert, animated: true, completion: nil)
+    func selectedSortOrder() -> String {
+        return rhymeSortOrderSegmentedControl.selectedSegmentIndex == SortOrder.Alphabetical.segmentedControlIndex ? SortOrder.Alphabetical.parameterValue : SortOrder.Random.parameterValue
     }
 }
-
-
-
-
-
-
-

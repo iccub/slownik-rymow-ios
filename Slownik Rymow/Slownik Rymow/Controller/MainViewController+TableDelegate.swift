@@ -14,15 +14,18 @@ extension MainViewController: UITableViewDelegate {
         let row = indexPath.row
         
         guard Reachability.isConnectedToNetwork() else {
-            showAlert("Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem", title: "Błąd połączenia", withActivityIndicator: false, cancellable: true)
+            alertFactory?.showErrorAlert(.NotConnectedToNetworkError)
             return
         }
         
-        FoundRhymesModel.getRhymeDefinition(foundRhymes[row] as! String, onCompletion: { (responseObject: String) in
-            dispatch_async(dispatch_get_main_queue()) {
+        rhymeDefinitionManager.getRhymeDefinition(foundRhymes[row]) { status in
+            switch status {
+            case .Failure(let error):
+                self.alertFactory?.showErrorAlert(error, word: self.foundRhymes[row])
+            case .Success(let rhymeDefinition):
                 self.inputWord.resignFirstResponder()
-                self.showFormattedAlert(responseObject, title: self.foundRhymes[row] as! String)
+                self.alertFactory?.showFormattedAlert(rhymeDefinition, title: self.foundRhymes[row])
             }
-        })
+        }
     }
 }

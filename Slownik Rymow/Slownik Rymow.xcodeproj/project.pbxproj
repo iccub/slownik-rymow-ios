@@ -14,12 +14,20 @@
 		0A2A69C91AC02E6500D6BDA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A2A69C71AC02E6500D6BDA9 /* LaunchScreen.xib */; };
 		0A2A69D51AC02E6500D6BDA9 /* Slownik_RymowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69D41AC02E6500D6BDA9 /* Slownik_RymowTests.swift */; };
 		0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */; };
-		0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */; };
 		0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */; };
 		4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */; };
 		440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */; };
 		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
 		440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */; };
+		44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */; };
+		44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */; };
+		44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */; };
+		44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */; };
+		44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */; };
+		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
+		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
+		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
+		F256EC8B6EC42B52019C967B /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +52,22 @@
 		0A2A69D31AC02E6500D6BDA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A2A69D41AC02E6500D6BDA9 /* Slownik_RymowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slownik_RymowTests.swift; sourceTree = "<group>"; };
 		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButtonView.swift; sourceTree = "<group>"; };
-		0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundRhymesModel.swift; sourceTree = "<group>"; };
 		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextField.swift; sourceTree = "<group>"; };
+		0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.release.xcconfig"; sourceTree = "<group>"; };
 		4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DataSource.swift"; sourceTree = "<group>"; };
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderService.swift; sourceTree = "<group>"; };
+		44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderModel.swift; sourceTree = "<group>"; };
+		44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionModel.swift; sourceTree = "<group>"; };
+		44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionService.swift; sourceTree = "<group>"; };
+		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
+		44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderManager.swift; sourceTree = "<group>"; };
+		44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewFactory.swift; sourceTree = "<group>"; };
+		FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F256EC8B6EC42B52019C967B /* Pods_Slownik_Rymow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +95,8 @@
 				0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */,
 				0A2A69D11AC02E6500D6BDA9 /* Slownik RymowTests */,
 				0A2A69BA1AC02E6500D6BDA9 /* Products */,
+				C565B5530891ABBA0295D31E /* Pods */,
+				6923652D642F5E21F018DF0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,12 +112,14 @@
 		0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */ = {
 			isa = PBXGroup;
 			children = (
+				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
 				4406332B1CA5475500DBBFDF /* Model */,
 				4406332C1CA5476D00DBBFDF /* View */,
 				4406332D1CA5477E00DBBFDF /* Controller */,
-				0A2A69BC1AC02E6500D6BDA9 /* Supporting Files */,
+				44A9BB7D1CA6F6AD0094F4B8 /* Manager */,
+				44A9BB701CA55BBA0094F4B8 /* Service */,
 				440633321CA54AEC00DBBFDF /* Helpers */,
-				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
+				0A2A69BC1AC02E6500D6BDA9 /* Supporting Files */,
 			);
 			path = "Slownik Rymow";
 			sourceTree = "<group>";
@@ -132,7 +155,8 @@
 		4406332B1CA5475500DBBFDF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0AA1F58F1B30347D00A1C7DE /* FoundRhymesModel.swift */,
+				44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */,
+				44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,8 +185,45 @@
 			isa = PBXGroup;
 			children = (
 				440633331CA54B0C00DBBFDF /* Reachibility.swift */,
+				44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */,
+				44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		44A9BB701CA55BBA0094F4B8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */,
+				44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		44A9BB7D1CA6F6AD0094F4B8 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */,
+				44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6923652D642F5E21F018DF0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C565B5530891ABBA0295D31E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */,
+				0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A2A69D81AC02E6500D6BDA9 /* Build configuration list for PBXNativeTarget "Slownik Rymow" */;
 			buildPhases = (
+				02812CD9213B82E038548F1B /* Check Pods Manifest.lock */,
 				0A2A69B51AC02E6500D6BDA9 /* Sources */,
 				0A2A69B61AC02E6500D6BDA9 /* Frameworks */,
 				0A2A69B71AC02E6500D6BDA9 /* Resources */,
+				6803691C2FD1C67B0A6CE141 /* Embed Pods Frameworks */,
+				DC4FF7FF1DC74BAF150DB17B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,20 +326,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02812CD9213B82E038548F1B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6803691C2FD1C67B0A6CE141 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC4FF7FF1DC74BAF150DB17B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A2A69B51AC02E6500D6BDA9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */,
+				44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */,
 				440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */,
-				0AA1F5901B30347D00A1C7DE /* FoundRhymesModel.swift in Sources */,
+				44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */,
+				44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */,
 				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
 				440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */,
+				44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */,
+				44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */,
 				0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */,
+				44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */,
 				440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */,
 				0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */,
+				44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */,
+				44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +518,7 @@
 		};
 		0A2A69D91AC02E6500D6BDA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -420,6 +540,7 @@
 		};
 		0A2A69DA1AC02E6500D6BDA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
