@@ -66,7 +66,7 @@ struct RhymeDefinitionManager {
     /** sjp.pl webpage word definitions are split into paragraphs, because polish words often have few meanings */
     func splitHtmlToDescriptionParagraphs(html: String, word: String) throws -> [String]{
         //each relevant paragraph has style like this, so I'm searching for its occurences in html source
-        let splitMagicString = "style=\"margin-top: .5em; font-size: medium; max-width: 32em; \">"
+        let splitMagicString = "style=\"margin: .5em 0; font-size: medium; max-width: 32em; \">"
         var sectionsArray = html.componentsSeparatedByString(splitMagicString)
         
         guard sectionsArray.count > 1 else {
