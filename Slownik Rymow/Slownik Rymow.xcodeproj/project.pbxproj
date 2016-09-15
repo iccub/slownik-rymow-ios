@@ -28,6 +28,7 @@
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
 		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
 		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
+		AD2022CA1F0C9C14F7AFB066 /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */; };
 		E6D3A8E8856EFD7DF7BD0CC2 /* Pods_Slownik_RymowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				447241D01D8B2DC200E21F18 /* Alamofire.framework in Frameworks */,
+				AD2022CA1F0C9C14F7AFB066 /* Pods_Slownik_Rymow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

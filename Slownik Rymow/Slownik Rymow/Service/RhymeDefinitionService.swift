@@ -16,8 +16,10 @@ enum RhymeDefinitionServiceStatus {
 
 struct RhymeDefinitionService {
     
-    func getWordDefinitionHTML(_ word: String, completion: @escaping (_ status: RhymeDefinitionServiceStatus) -> Void) {
-        let escapedRhymeDefinitionURL = "http://sjp.pl//\(word)".addingPercentEscapes(using: String.Encoding.utf8)
+    func getWordDefinitionHTML(_ word: String, completion: @escaping (_ status: RhymeDefinitionServiceStatus) -> Void) {        
+        let escapedRhymeDefinitionURL = "http://sjp.pl//\(word)".addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        
+        
         
         Alamofire.request(escapedRhymeDefinitionURL!, method: .get, encoding: URLEncoding.default).validate().responseString(encoding: String.Encoding.utf8) {
             response in
