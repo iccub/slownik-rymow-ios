@@ -1,6 +1,0 @@
-framework module Pods_Slownik_Rymow {
-  umbrella header "Pods-Slownik Rymow-umbrella.h"
-
-  export *
-  module * { export * }
-}
