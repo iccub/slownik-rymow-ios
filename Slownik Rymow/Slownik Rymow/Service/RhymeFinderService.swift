@@ -48,7 +48,9 @@ struct RhymeFinderService {
                 var rhymeArray = [FoundRhyme]()
                 for rhymeDictionary in foundRhymesJson {
                     if let rhyme = rhymeDictionary["word"] {
-                        rhymeArray.append(rhyme)
+                        if rhyme != word {
+                            rhymeArray.append(rhyme)
+                        }
                     }
                 }
                 
