@@ -11,42 +11,42 @@ import UIKit
 struct AlertViewFactory {
     let vc: UIViewController
     
-    func showErrorAlert(errorType: AppErrors, word: String = "") {
+    func showErrorAlert(_ errorType: AppErrors, word: String = "") {
         var title = ""
         var message = ""
         
         switch errorType {
-        case .NoDefinitionsFound:
+        case .noDefinitionsFound:
             title = word
             message = "Brak definicji w słowniku"
-        case .NotConnectedToNetworkError:
+        case .notConnectedToNetworkError:
             title = "Błąd połączenia"
             message = "Słownik nie działa w trybie offline. Sprawdź swoje połączenie z internetem"
-        case .ParseError, .NetworkError:
+        case .parseError, .networkError:
             title = "Błąd serwera"
             message = "Wystąpił błąd po stronie serwera. Spróbuj ponownie za kilka minut"
-        case .NoRhymesFound:
+        case .noRhymesFound:
             title = "Brak wyników"
             message = "Brak rymów do słowa \(word)"
         }
         
         let alert = buildAlert(title, msg: message)
-        vc.presentViewController(alert, animated: true, completion: nil)
+        vc.present(alert, animated: true, completion: nil)
         
     }
     
-    func showLoadingAlert(preciseRhymeSearch: Bool) {
+    func showLoadingAlert(_ preciseRhymeSearch: Bool) {
         let message = preciseRhymeSearch ? "" : "Szukanie rymów niedokładnych zajmuje więcej czasu"
         let alert = buildAlert("Szukam rymów", msg: message, withActivityIndicator: true, cancellable: false)
-        vc.presentViewController(alert, animated: true, completion: nil)
+        vc.present(alert, animated: true, completion: nil)
     }
     
-    private func buildAlert(title: String, msg: String, withActivityIndicator: Bool = false, cancellable: Bool = true) -> UIAlertController{
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.view.tintColor = UIColor.orangeColor()
+    fileprivate func buildAlert(_ title: String, msg: String, withActivityIndicator: Bool = false, cancellable: Bool = true) -> UIAlertController{
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.alert)
+        alert.view.tintColor = UIColor.orange
         
         if cancellable {
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         }
         
         if withActivityIndicator {
@@ -56,45 +56,45 @@ struct AlertViewFactory {
         return alert
     }
     
-    private func addActivityIndicatorToAlertController(alertView: UIAlertController) {
+    fileprivate func addActivityIndicatorToAlertController(_ alertView: UIAlertController) {
         var views = [String : UIView]()
         let indicator = UIActivityIndicatorView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         alertView.view.addSubview(indicator)
-        indicator.userInteractionEnabled = false
+        indicator.isUserInteractionEnabled = false
         indicator.startAnimating()
         
         views = ["pending" : alertView.view, "indicator" : indicator]
-        var constraints = NSLayoutConstraint.constraintsWithVisualFormat("V:[indicator]-(-50)-|", options: [], metrics: nil, views: views)
-        constraints += NSLayoutConstraint.constraintsWithVisualFormat("H:|[indicator]|", options: [], metrics: nil, views: views)
+        var constraints = NSLayoutConstraint.constraints(withVisualFormat: "V:[indicator]-(-50)-|", options: [], metrics: nil, views: views)
+        constraints += NSLayoutConstraint.constraints(withVisualFormat: "H:|[indicator]|", options: [], metrics: nil, views: views)
         alertView.view.addConstraints(constraints)
     }
     
-    func showFormattedAlert(message: String, title: String) {
+    func showFormattedAlert(_ message: String, title: String) {
         let formattedMessage = prepareAttributedString(message)
         
         //I need to build cancellable alert and create "OK" there because I want to have "OK" button to the right
         let alert = buildAlert(title, msg: message, cancellable: false)
         alert.setValue(formattedMessage, forKey: "attributedMessage")
         
-        alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.Default) { _ in
-            UIPasteboard.generalPasteboard().string = title
+        alert.addAction(UIAlertAction(title: "Copy word", style: UIAlertActionStyle.default) { _ in
+            UIPasteboard.general.string = title
             })
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         
-        vc.presentViewController(alert, animated: true, completion: nil)
+        vc.present(alert, animated: true, completion: nil)
     }
     
-    private func prepareAttributedString(message: String) -> NSMutableAttributedString {
+    fileprivate func prepareAttributedString(_ message: String) -> NSMutableAttributedString {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = NSTextAlignment.Justified
+        paragraphStyle.alignment = NSTextAlignment.justified
         
         let messageText = NSMutableAttributedString(
             string: message,
             attributes: [
                 NSParagraphStyleAttributeName: paragraphStyle,
-                NSFontAttributeName : UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1),
-                NSForegroundColorAttributeName : UIColor.blackColor()
+                NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1),
+                NSForegroundColorAttributeName : UIColor.black
             ]
         )
         

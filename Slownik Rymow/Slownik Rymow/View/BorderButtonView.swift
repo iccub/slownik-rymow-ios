@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class BorderButtonView: UIButton {
   
-  @IBInspectable var color: UIColor = UIColor.orangeColor() {
+  @IBInspectable var color: UIColor = UIColor.orange {
     didSet {
       setupView()
     }
@@ -43,11 +43,11 @@ class BorderButtonView: UIButton {
   
   func setupView() {
     self.layer.cornerRadius = cornerRadius
-    self.layer.borderColor = color.CGColor
+    self.layer.borderColor = color.cgColor
     self.layer.borderWidth = borderWidth
-    self.tintColor = UIColor.whiteColor()
+    self.tintColor = UIColor.white
     self.backgroundColor = color
-    self.titleLabel?.textColor = UIColor.whiteColor()
+    self.titleLabel?.textColor = UIColor.white
     
     
     self.setNeedsDisplay()

@@ -27,7 +27,8 @@
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
 		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
 		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
-		F256EC8B6EC42B52019C967B /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */; };
+		E6D3A8E8856EFD7DF7BD0CC2 /* Pods_Slownik_RymowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */; };
+		EF85266A495C68C88079D1F6 /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +54,7 @@
 		0A2A69D41AC02E6500D6BDA9 /* Slownik_RymowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slownik_RymowTests.swift; sourceTree = "<group>"; };
 		0A2A69DE1AC03DD300D6BDA9 /* BorderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderButtonView.swift; sourceTree = "<group>"; };
 		0AB091331ACAF7AE005F1ABA /* BorderTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderTextField.swift; sourceTree = "<group>"; };
-		0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.release.xcconfig"; sourceTree = "<group>"; };
+		2211525159D58078398D4808 /* Pods-Slownik RymowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik RymowTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik RymowTests/Pods-Slownik RymowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4406332E1CA5492400DBBFDF /* MainViewController+DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+DataSource.swift"; sourceTree = "<group>"; };
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
@@ -66,8 +67,11 @@
 		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
 		44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderManager.swift; sourceTree = "<group>"; };
 		44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewFactory.swift; sourceTree = "<group>"; };
-		FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
+		543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57189ECAEC12608704AAFD96 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
+		6F382ECA451A27BBA2583DAB /* Pods-Slownik Rymow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.release.xcconfig"; sourceTree = "<group>"; };
+		8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_RymowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF044C28CFC67A0D1B005CF3 /* Pods-Slownik RymowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik RymowTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik RymowTests/Pods-Slownik RymowTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F256EC8B6EC42B52019C967B /* Pods_Slownik_Rymow.framework in Frameworks */,
+				EF85266A495C68C88079D1F6 /* Pods_Slownik_Rymow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D3A8E8856EFD7DF7BD0CC2 /* Pods_Slownik_RymowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,8 +100,8 @@
 				0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */,
 				0A2A69D11AC02E6500D6BDA9 /* Slownik RymowTests */,
 				0A2A69BA1AC02E6500D6BDA9 /* Products */,
-				C565B5530891ABBA0295D31E /* Pods */,
-				6923652D642F5E21F018DF0F /* Frameworks */,
+				14067D00E9F788DC6DE5A959 /* Pods */,
+				64853F312F46763BA4CDA145 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +155,17 @@
 				0A2A69D31AC02E6500D6BDA9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		14067D00E9F788DC6DE5A959 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57189ECAEC12608704AAFD96 /* Pods-Slownik Rymow.debug.xcconfig */,
+				6F382ECA451A27BBA2583DAB /* Pods-Slownik Rymow.release.xcconfig */,
+				2211525159D58078398D4808 /* Pods-Slownik RymowTests.debug.xcconfig */,
+				FF044C28CFC67A0D1B005CF3 /* Pods-Slownik RymowTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		4406332B1CA5475500DBBFDF /* Model */ = {
@@ -209,21 +225,13 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		6923652D642F5E21F018DF0F /* Frameworks */ = {
+		64853F312F46763BA4CDA145 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA4996FD6372199F97988971 /* Pods_Slownik_Rymow.framework */,
+				543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */,
+				8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C565B5530891ABBA0295D31E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */,
-				0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,12 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A2A69D81AC02E6500D6BDA9 /* Build configuration list for PBXNativeTarget "Slownik Rymow" */;
 			buildPhases = (
-				02812CD9213B82E038548F1B /* Check Pods Manifest.lock */,
+				91B6E2DD86C9276455B98ACE /* [CP] Check Pods Manifest.lock */,
 				0A2A69B51AC02E6500D6BDA9 /* Sources */,
 				0A2A69B61AC02E6500D6BDA9 /* Frameworks */,
 				0A2A69B71AC02E6500D6BDA9 /* Resources */,
-				6803691C2FD1C67B0A6CE141 /* Embed Pods Frameworks */,
-				DC4FF7FF1DC74BAF150DB17B /* Copy Pods Resources */,
+				7E3FC8715E1312F9AB4292A7 /* [CP] Embed Pods Frameworks */,
+				F9C0DAE6E8A75959F89DC592 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,9 +261,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A2A69DB1AC02E6500D6BDA9 /* Build configuration list for PBXNativeTarget "Slownik RymowTests" */;
 			buildPhases = (
+				F2A26407805FE016B74EE4A1 /* [CP] Check Pods Manifest.lock */,
 				0A2A69CA1AC02E6500D6BDA9 /* Sources */,
 				0A2A69CB1AC02E6500D6BDA9 /* Frameworks */,
 				0A2A69CC1AC02E6500D6BDA9 /* Resources */,
+				A0D199E4D7000E0725A0677F /* [CP] Embed Pods Frameworks */,
+				F1144B247FAE77C50366679F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,15 +285,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Michał Buczek";
 				TargetAttributes = {
 					0A2A69B81AC02E6500D6BDA9 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 56XR9FS29W;
+						LastSwiftMigration = 0800;
 					};
 					0A2A69CD1AC02E6500D6BDA9 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 						TestTargetID = 0A2A69B81AC02E6500D6BDA9;
 					};
 				};
@@ -327,29 +340,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02812CD9213B82E038548F1B /* Check Pods Manifest.lock */ = {
+		7E3FC8715E1312F9AB4292A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6803691C2FD1C67B0A6CE141 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,14 +355,74 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC4FF7FF1DC74BAF150DB17B /* Copy Pods Resources */ = {
+		91B6E2DD86C9276455B98ACE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A0D199E4D7000E0725A0677F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slownik RymowTests/Pods-Slownik RymowTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1144B247FAE77C50366679F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slownik RymowTests/Pods-Slownik RymowTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2A26407805FE016B74EE4A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F9C0DAE6E8A75959F89DC592 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,8 +507,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -459,6 +519,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -471,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -493,8 +554,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -502,15 +565,17 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -518,8 +583,9 @@
 		};
 		0A2A69D91AC02E6500D6BDA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD5AFF2F45751D218ABACA64 /* Pods-Slownik Rymow.debug.xcconfig */;
+			baseConfigurationReference = 57189ECAEC12608704AAFD96 /* Pods-Slownik Rymow.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -534,14 +600,16 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0A2A69DA1AC02E6500D6BDA9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DCC43B881A83370FE5FF379 /* Pods-Slownik Rymow.release.xcconfig */;
+			baseConfigurationReference = 6F382ECA451A27BBA2583DAB /* Pods-Slownik Rymow.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -555,12 +623,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		0A2A69DC1AC02E6500D6BDA9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2211525159D58078398D4808 /* Pods-Slownik RymowTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -575,12 +645,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slownik Rymow.app/Slownik Rymow";
 			};
 			name = Debug;
 		};
 		0A2A69DD1AC02E6500D6BDA9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF044C28CFC67A0D1B005CF3 /* Pods-Slownik RymowTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -591,6 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Slownik Rymow.app/Slownik Rymow";
 			};
 			name = Release;

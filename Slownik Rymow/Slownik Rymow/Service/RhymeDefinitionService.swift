@@ -10,24 +10,24 @@ import Foundation
 import Alamofire
 
 enum RhymeDefinitionServiceStatus {
-    case Success(html: String)
-    case Failure(error: AppErrors)
+    case success(html: String)
+    case failure(error: AppErrors)
 }
 
 struct RhymeDefinitionService {
     
-    func getWordDefinitionHTML(word: String, completion: (status: RhymeDefinitionServiceStatus) -> Void) {
-        let escapedRhymeDefinitionURL = "http://sjp.pl//\(word)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+    func getWordDefinitionHTML(_ word: String, completion: @escaping (_ status: RhymeDefinitionServiceStatus) -> Void) {
+        let escapedRhymeDefinitionURL = "http://sjp.pl//\(word)".addingPercentEscapes(using: String.Encoding.utf8)
         
-        Alamofire.request(.GET, escapedRhymeDefinitionURL!, encoding: .URL).validate().responseString(encoding: NSUTF8StringEncoding) {
+        Alamofire.request(escapedRhymeDefinitionURL!, method: .get, encoding: URLEncoding.default).validate().responseString(encoding: String.Encoding.utf8) {
             response in
             
             guard response.result.error == nil, let data = response.result.value else {
-                completion(status: .Failure(error: .NetworkError))
+                completion(.failure(error: .networkError))
                 return
             }
             
-            completion(status: .Success(html: data))
+            completion(.success(html: data))
         }
     }
 }

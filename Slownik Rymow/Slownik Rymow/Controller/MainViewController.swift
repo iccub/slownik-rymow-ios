@@ -40,7 +40,7 @@ class MainViewController: UIViewController {
         alertFactory = AlertViewFactory(vc: self)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         inputWord.becomeFirstResponder()
@@ -48,11 +48,11 @@ class MainViewController: UIViewController {
     
     //MARK: - Storyboard actions
     
-    @IBAction func rhymeCountStepperValueChanged(sender: UIStepper) {
+    @IBAction func rhymeCountStepperValueChanged(_ sender: UIStepper) {
         rhymeCountLabel.text = "\(Int(sender.value))"
     }
     
-    @IBAction func searchForRhymes(sender: AnyObject) {
+    @IBAction func searchForRhymes(_ sender: AnyObject) {
         self.inputWord.resignFirstResponder()
         guard inputWord.text?.isEmpty == false else {
             return
@@ -61,18 +61,18 @@ class MainViewController: UIViewController {
         clearRhymesTable()
         alertFactory?.showLoadingAlert(arePreciseRhymesBeingSearched())
         
-        rhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercaseString, sortMethod: selectedSortOrder(), rhymePrecision: selectedRhymePrecision(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
+        rhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercased(), sortMethod: selectedSortOrder(), rhymePrecision: selectedRhymePrecision(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
             status in
             
             switch status {
-            case .Failure(let error):
-                self.dismissViewControllerAnimated(true) {
-                    self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercaseString)
+            case .failure(let error):
+                self.dismiss(animated: true) {
+                    self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercased())
                 }
-            case .Success(let foundRhymesList):
+            case .success(let foundRhymesList):
                 self.foundRhymes = foundRhymesList
                 self.tableView.reloadData()
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             
         }
