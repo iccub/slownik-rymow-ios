@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class BorderTextField: UITextField {
   
-  @IBInspectable var color: UIColor = UIColor.orangeColor() {
+  @IBInspectable var color: UIColor = UIColor.orange {
     didSet {
       setupView()
     }
@@ -43,7 +43,7 @@ class BorderTextField: UITextField {
   
   func setupView() {
     self.layer.cornerRadius = cornerRadius
-    self.layer.borderColor = color.CGColor
+    self.layer.borderColor = color.cgColor
     self.layer.borderWidth = borderWidth
     self.tintColor = color
     self.textColor = color

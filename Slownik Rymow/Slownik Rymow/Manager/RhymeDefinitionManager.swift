@@ -9,8 +9,8 @@
 import Foundation
 
 enum RhymeDefinitionManagerStatus {
-    case Success(definition: RhymeDefinition)
-    case Failure(error: AppErrors)
+    case success(definition: RhymeDefinition)
+    case failure(error: AppErrors)
 }
 
 struct RhymeDefinitionManager {
@@ -20,34 +20,34 @@ struct RhymeDefinitionManager {
         self.rhymeDefinitionService = rhymeDefinitionService
     }
     
-    func getRhymeDefinition(word: String, completion: (status: RhymeDefinitionManagerStatus) -> Void){
+    func getRhymeDefinition(_ word: String, completion: @escaping (_ status: RhymeDefinitionManagerStatus) -> Void){
         guard Reachability.isConnectedToNetwork() else {
-            completion(status: .Failure(error: .NotConnectedToNetworkError))
+            completion(.failure(error: .notConnectedToNetworkError))
             return
         }
         
         rhymeDefinitionService.getWordDefinitionHTML(word) { status in
             
             switch status {
-            case .Failure(let error):
-                completion(status: .Failure(error: error))
-            case .Success(let htmlString):
+            case .failure(let error):
+                completion(.failure(error: error))
+            case .success(let htmlString):
                 do {
                     let resultString = try self.formatHTMLToDescription(htmlString, word: word)
-                    completion(status: .Success(definition: resultString))
+                    completion(.success(definition: resultString))
                 } catch let error {
                     if let error = error as? AppErrors {
-                        completion(status: .Failure(error: error))
+                        completion(.failure(error: error))
                     } else {
                         print("undefined error, should never launch, throws parse error just in case")
-                        completion(status: .Failure(error: .ParseError))
+                        completion(.failure(error: .parseError))
                     }
                 }
             }
         }
     }
     
-    func formatHTMLToDescription(html: String, word: String) throws -> String {
+    func formatHTMLToDescription(_ html: String, word: String) throws -> String {
         var resultString = ""
         
         do {
@@ -64,13 +64,13 @@ struct RhymeDefinitionManager {
     }
     
     /** sjp.pl webpage word definitions are split into paragraphs, because polish words often have few meanings */
-    func splitHtmlToDescriptionParagraphs(html: String, word: String) throws -> [String]{
+    func splitHtmlToDescriptionParagraphs(_ html: String, word: String) throws -> [String]{
         //each relevant paragraph has style like this, so I'm searching for its occurences in html source
         let splitMagicString = "style=\"margin: .5em 0; font-size: medium; max-width: 32em; \">"
-        var sectionsArray = html.componentsSeparatedByString(splitMagicString)
+        var sectionsArray = html.components(separatedBy: splitMagicString)
         
         guard sectionsArray.count > 1 else {
-            throw AppErrors.NoDefinitionsFound
+            throw AppErrors.noDefinitionsFound
         }
         
         //first part of split is junk - all the html body before first occurence of paragraph with word description so I remove it here
@@ -82,24 +82,24 @@ struct RhymeDefinitionManager {
                 try resultArray.append(cutParagraph(section))
             }
         } catch {
-            throw AppErrors.ParseError
+            throw AppErrors.parseError
         }
         
         return resultArray
     }
     
-    private func cutParagraph(paragraph: String) throws -> String {
-        guard let closingParagraphRange = paragraph.rangeOfString("</p>") else {
-            throw AppErrors.ParseError
+    fileprivate func cutParagraph(_ paragraph: String) throws -> String {
+        guard let closingParagraphRange = paragraph.range(of: "</p>") else {
+            throw AppErrors.parseError
         }
         
-        return paragraph.substringToIndex(closingParagraphRange.startIndex)
+        return paragraph.substring(to: closingParagraphRange.lowerBound)
     }
     
     /** There are 2 types of definitions in sjp.pl website:
      numbered list when there is few definitions under one context
      and regular text when there is only one definition. This methods both so they are shown to user in standarized manner, with dashes for each definition */
-    private func formatParagraph(paragraph: String) throws -> String{
+    fileprivate func formatParagraph(_ paragraph: String) throws -> String{
         
         var resultString = ""
         var numberRegex: NSRegularExpression?
@@ -107,15 +107,15 @@ struct RhymeDefinitionManager {
         do {
             numberRegex = try NSRegularExpression(pattern: "[0-9]+\\.", options: [])
         } catch {
-            throw AppErrors.ParseError
+            throw AppErrors.parseError
         }
         
         guard let regex = numberRegex else {
-            throw AppErrors.ParseError
+            throw AppErrors.parseError
         }
         
-        let stringWithDashes = regex.matchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count)).count > 0
-            ? regex.stringByReplacingMatchesInString(paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count), withTemplate: "-") : "- \(paragraph)"
+        let stringWithDashes = regex.matches(in: paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count)).count > 0
+            ? regex.stringByReplacingMatches(in: paragraph, options: [], range: NSMakeRange(0, paragraph.characters.count), withTemplate: "-") : "- \(paragraph)"
         
         resultString += replaceWhiteSpaces(stringWithDashes)
         resultString += "\n"
@@ -123,10 +123,10 @@ struct RhymeDefinitionManager {
         return resultString
     }
     
-    private func replaceWhiteSpaces(text: String) -> String {
-        return text.stringByReplacingOccurrencesOfString("<br />", withString: "\n", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            .stringByReplacingOccurrencesOfString("&nbsp", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            .stringByReplacingOccurrencesOfString("&quot;", withString: "\"", options: NSStringCompareOptions.LiteralSearch, range: nil)
+    fileprivate func replaceWhiteSpaces(_ text: String) -> String {
+        return text.replacingOccurrences(of: "<br />", with: "\n", options: NSString.CompareOptions.literal, range: nil)
+            .replacingOccurrences(of: "&nbsp", with: "", options: NSString.CompareOptions.literal, range: nil)
+            .replacingOccurrences(of: "&quot;", with: "\"", options: NSString.CompareOptions.literal, range: nil)
         
     }
 }

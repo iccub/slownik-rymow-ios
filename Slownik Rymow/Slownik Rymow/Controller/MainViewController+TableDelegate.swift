@@ -9,20 +9,20 @@
 import UIKit
 
 extension MainViewController: UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let row = indexPath.row
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let row = (indexPath as NSIndexPath).row
         
         guard Reachability.isConnectedToNetwork() else {
-            alertFactory?.showErrorAlert(.NotConnectedToNetworkError)
+            alertFactory?.showErrorAlert(.notConnectedToNetworkError)
             return
         }
         
         rhymeDefinitionManager.getRhymeDefinition(foundRhymes[row]) { status in
             switch status {
-            case .Failure(let error):
+            case .failure(let error):
                 self.alertFactory?.showErrorAlert(error, word: self.foundRhymes[row])
-            case .Success(let rhymeDefinition):
+            case .success(let rhymeDefinition):
                 self.inputWord.resignFirstResponder()
                 self.alertFactory?.showFormattedAlert(rhymeDefinition, title: self.foundRhymes[row])
             }

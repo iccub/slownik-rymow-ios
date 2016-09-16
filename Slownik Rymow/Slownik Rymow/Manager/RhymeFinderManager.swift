@@ -8,11 +8,10 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 enum RhymeFinderManagerStatus {
-    case Success(foundRhymesList: [FoundRhyme])
-    case Failure(error: AppErrors)
+    case success(foundRhymesList: [FoundRhyme])
+    case failure(error: AppErrors)
 }
 
 struct RhymeFinderManager {
@@ -23,9 +22,9 @@ struct RhymeFinderManager {
         self.rhymeFinderService = rhymesService
     }
     
-    func getRhymesWithParameters(parameters: SearchParameters, completion: (status: RhymeFinderManagerStatus) -> Void) {
+    func getRhymesWithParameters(_ parameters: SearchParameters, completion: @escaping (_ status: RhymeFinderManagerStatus) -> Void) {
         guard Reachability.isConnectedToNetwork() else {
-            completion(status: .Failure(error: .NotConnectedToNetworkError))
+            completion(.failure(error: .notConnectedToNetworkError))
             return
         }
         
@@ -33,18 +32,17 @@ struct RhymeFinderManager {
             status in
             
             switch status {
-            case .Failure(let error):
-                completion(status: .Failure(error: error))
-            case .Success(let json):
+            case .failure(let error):
+                completion(.failure(error: error))
+            case .success(let json):
                 var foundRhymesArray = [FoundRhyme]()
                 
-                for (_, subJson):(String, JSON) in json {
-                    if let word = subJson["word"].string {
-                        foundRhymesArray.append(word)
-                    }
+                
+                for word in json {
+                    foundRhymesArray.append(word)
                 }
                 
-                completion(status: .Success(foundRhymesList: foundRhymesArray))
+                completion(.success(foundRhymesList: foundRhymesArray))
             }
         }
     }

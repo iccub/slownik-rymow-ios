@@ -8,43 +8,56 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
+
+typealias JSON = [[String: String]]
 
 enum RhymesServiceStatus {
-    case Success(json: JSON)
-    case Failure(error: AppErrors)
+    case success(json: [String])
+    case failure(error: AppErrors)
 }
 
 struct RhymeFinderService {
     
-    func getRhymes(word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int, completion: (status: RhymesServiceStatus) -> Void) {
+    func getRhymes(_ word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int, completion: @escaping (_ status: RhymesServiceStatus) -> Void) {
         let endPoint = "http://178.62.220.64/wbs/findRhymes.php"
         
-        let params: [String: AnyObject] = ["rhyme_precision": rhymePrecision,
-                      "sort_method": sortMethod,
-                      "rhyme_length": rhymeLenght,
-                      "search_word": word]
+        let params: [String: AnyObject] = ["rhyme_precision": rhymePrecision as AnyObject,
+                      "sort_method": sortMethod as AnyObject,
+                      "rhyme_length": rhymeLenght as AnyObject,
+                      "search_word": word as AnyObject]
         
-        Alamofire.request(.POST, endPoint, parameters: params, encoding: .URL).validate().responseJSON() { response in
+        
+        
+        Alamofire.request(endPoint, method: .post, parameters: params, encoding: URLEncoding.default).validate().responseData {
+            response in
             
-            guard response.result.error == nil, let data = response.result.value else {
-                completion(status: .Failure(error: .NetworkError))
+            guard response.result.error == nil, let data = response.data else {
+                completion(.failure(error: .networkError))
                 return
             }
             
-            let json = JSON(data)
-            
-            guard !json.isEmpty else {
-                completion(status: .Failure(error: .NoRhymesFound))
+            let dataAsString = String(data: data, encoding: String.Encoding.utf8)
+            guard dataAsString != "null" else {
+                completion(.failure(error: .noRhymesFound))
                 return
             }
             
-            guard json.error == nil else {
-                completion(status: .Failure(error: AppErrors.ParseError))
-                return
+            do {
+                let foundRhymesJson = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as! JSON
+                
+                var rhymeArray = [FoundRhyme]()
+                for rhymeDictionary in foundRhymesJson {
+                    if let rhyme = rhymeDictionary["word"] {
+                        if rhyme != word {
+                            rhymeArray.append(rhyme)
+                        }
+                    }
+                }
+                
+                completion(.success(json: rhymeArray))
+            } catch  {
+                completion(.failure(error: .parseError))
             }
-            
-            completion(status: .Success(json: json))
         }
     }
 }

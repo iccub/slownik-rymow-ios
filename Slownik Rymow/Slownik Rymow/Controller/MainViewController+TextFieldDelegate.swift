@@ -9,8 +9,8 @@
 import UIKit
 
 extension MainViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == inputWord.text {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text == inputWord.text! {
             textField.resignFirstResponder()
             return false
         }
@@ -18,10 +18,10 @@ extension MainViewController: UITextFieldDelegate {
     }
     
     //funkcja blokuje wszystkie znaki specjalne poza A-Z i polskimi ogonkami
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĄĘÓŃŚĆŻŹŁąęóńśćżźł"
-        let charset = NSCharacterSet(charactersInString: allowedLetters).invertedSet
+        let charset = CharacterSet(charactersIn: allowedLetters).inverted
         
-        return string.rangeOfCharacterFromSet(charset) == nil
+        return string.rangeOfCharacter(from: charset) == nil
     }
 }

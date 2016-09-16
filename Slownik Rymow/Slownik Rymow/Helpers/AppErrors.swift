@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum AppErrors: ErrorType {
-    case NotConnectedToNetworkError
-    case NetworkError
+enum AppErrors: Error {
+    case notConnectedToNetworkError
+    case networkError
     /** Thrown when found rhymes JSON are wrong or rhyme description was not properly parsed */
-    case ParseError
+    case parseError
     /** Thrown if found rhymes list is empty or no rhyme definition is found */
-    case NoRhymesFound
-    case NoDefinitionsFound
+    case noRhymesFound
+    case noDefinitionsFound
 }
