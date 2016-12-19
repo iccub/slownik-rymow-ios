@@ -5,6 +5,7 @@ use_frameworks!
 
 target 'Slownik Rymow' do
 pod 'Alamofire', '~> 4.0'
+pod 'SQLite.swift', '~> 0.11.1'
 end
 
 target 'Slownik RymowTests' do
