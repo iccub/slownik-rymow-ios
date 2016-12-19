@@ -15,35 +15,20 @@ enum RhymeFinderManagerStatus {
 }
 
 struct RhymeFinderManager {
-    
-    let rhymeFinderService: RhymeFinderService
-    
-    init(rhymesService: RhymeFinderService = RhymeFinderService()) {
-        self.rhymeFinderService = rhymesService
-    }
-    
-    func getRhymesWithParameters(_ parameters: SearchParameters, completion: @escaping (_ status: RhymeFinderManagerStatus) -> Void) {
-        guard Reachability.isConnectedToNetwork() else {
-            completion(.failure(error: .notConnectedToNetworkError))
-            return
-        }
+    func findRhymes(with parameters: SearchParameters, completion: @escaping (_ status: RhymeFinderManagerStatus) -> Void) {
         
-        rhymeFinderService.getRhymes(parameters.word, sortMethod: parameters.sortMethod, rhymePrecision: parameters.rhymePrecision, rhymeLenght: parameters.rhymeLenght) {
-            status in
+        let findRhymeDataHelper = FindRhymeDataHelper()
+        
+        do {
+            let foundRhymes = try findRhymeDataHelper.findRhymes(with: parameters)
+            completion(.success(foundRhymesList: foundRhymes))
             
-            switch status {
-            case .failure(let error):
-                completion(.failure(error: error))
-            case .success(let json):
-                var foundRhymesArray = [FoundRhyme]()
-                
-                
-                for word in json {
-                    foundRhymesArray.append(word)
-                }
-                
-                completion(.success(foundRhymesList: foundRhymesArray))
+            if foundRhymes.isEmpty {
+                completion(.failure(error: .noRhymesFound))
             }
+            
+        } catch {
+            completion(.failure(error: .sqlError))
         }
     }
 }
