@@ -11,9 +11,9 @@ import Foundation
 enum AppErrors: Error {
     case notConnectedToNetworkError
     case networkError
-    /** Thrown when found rhymes JSON are wrong or rhyme description was not properly parsed */
+    case sqlError
+    /** Thrown when rhyme description was not properly parsed */
     case parseError
-    /** Thrown if found rhymes list is empty or no rhyme definition is found */
     case noRhymesFound
     case noDefinitionsFound
 }
