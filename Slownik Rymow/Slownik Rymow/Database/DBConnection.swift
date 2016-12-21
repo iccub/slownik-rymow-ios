@@ -13,8 +13,11 @@ class DBConnection {
     static let shared = DBConnection()
     let connection: Connection?
     
-    let databaseName = "word_list"
+    let databaseName = "db-fts-reversed"
     let databaseExtension = "db"
+    
+    static let tableName = "word_list"
+    static let columnName = "word";
     
     private init() {
         guard let databasePath = Bundle.main.path(forResource: databaseName, ofType: databaseExtension) else {
