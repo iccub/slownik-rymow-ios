@@ -22,7 +22,6 @@
 		441374361E06B8A200107B09 /* FindRhymeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441374351E06B8A200107B09 /* FindRhymeDataHelper.swift */; };
 		441374381E06BA0F00107B09 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441374371E06BA0F00107B09 /* DBError.swift */; };
 		442F1B591E06AFC30021CFF7 /* DBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F1B581E06AFC30021CFF7 /* DBConnection.swift */; };
-		44692F371E0AA2B5005706E0 /* db-fts-reversed.db in Resources */ = {isa = PBXBuildFile; fileRef = 44692F361E0AA2B5005706E0 /* db-fts-reversed.db */; };
 		447241D01D8B2DC200E21F18 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447241CF1D8B2DC200E21F18 /* Alamofire.framework */; };
 		44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */; };
 		44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */; };
@@ -31,6 +30,7 @@
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
 		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
 		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
+		44E0854F1E0AC4B300EE3FDB /* db-fts-reversed.db in Resources */ = {isa = PBXBuildFile; fileRef = 44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */; };
 		AD2022CA1F0C9C14F7AFB066 /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */; };
 		E6D3A8E8856EFD7DF7BD0CC2 /* Pods_Slownik_RymowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,6 @@
 		441374351E06B8A200107B09 /* FindRhymeDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindRhymeDataHelper.swift; sourceTree = "<group>"; };
 		441374371E06BA0F00107B09 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
 		442F1B581E06AFC30021CFF7 /* DBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConnection.swift; sourceTree = "<group>"; };
-		44692F361E0AA2B5005706E0 /* db-fts-reversed.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "db-fts-reversed.db"; sourceTree = "<group>"; };
 		447241CF1D8B2DC200E21F18 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Slownik_Rymow-cnsgfszpuyfaqvbqzphigjtvmspq/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderModel.swift; sourceTree = "<group>"; };
 		44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionModel.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
 		44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderManager.swift; sourceTree = "<group>"; };
 		44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewFactory.swift; sourceTree = "<group>"; };
+		44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "db-fts-reversed.db"; sourceTree = "<group>"; };
 		543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57189ECAEC12608704AAFD96 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
 		6F382ECA451A27BBA2583DAB /* Pods-Slownik Rymow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */,
-				44692F361E0AA2B5005706E0 /* db-fts-reversed.db */,
+				44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */,
 				0A2A69D11AC02E6500D6BDA9 /* Slownik RymowTests */,
 				0A2A69BA1AC02E6500D6BDA9 /* Products */,
 				14067D00E9F788DC6DE5A959 /* Pods */,
@@ -348,7 +348,7 @@
 				0A2A69C41AC02E6500D6BDA9 /* Main.storyboard in Resources */,
 				0A2A69C91AC02E6500D6BDA9 /* LaunchScreen.xib in Resources */,
 				0A2A69C61AC02E6500D6BDA9 /* Images.xcassets in Resources */,
-				44692F371E0AA2B5005706E0 /* db-fts-reversed.db in Resources */,
+				44E0854F1E0AC4B300EE3FDB /* db-fts-reversed.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
