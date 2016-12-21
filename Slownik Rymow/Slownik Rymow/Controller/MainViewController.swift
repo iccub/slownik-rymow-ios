@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet var rhymeSortOrderSegmentedControl: UISegmentedControl!
     @IBOutlet var inputWord: BorderTextField!
     @IBOutlet var searchRhymeButton: BorderButtonView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var foundRhymes = [FoundRhyme]()
     let textCellIdentifier = "TextCell"
@@ -72,7 +73,7 @@ class MainViewController: UIViewController {
         }
         
         clearRhymesTable()
-        alertFactory?.showLoadingAlert(arePreciseRhymesBeingSearched())
+        activityIndicator.startAnimating()
         
         DispatchQueue.global().async {
             let searchParameters = SearchParameters(word: self.inputWord.text!.lowercased(),
@@ -84,7 +85,8 @@ class MainViewController: UIViewController {
                 
                 switch status {
                 case .failure(let error):
-                    self.dismiss(animated: true) {
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercased())
                     }
                     
@@ -92,7 +94,7 @@ class MainViewController: UIViewController {
                     DispatchQueue.main.async {
                         self.foundRhymes = foundRhymes
                         self.tableView.reloadData()
-                        self.dismiss(animated: true, completion: nil)
+                        self.activityIndicator.stopAnimating()
                     }
                 }
             }
