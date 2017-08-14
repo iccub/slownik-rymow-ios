@@ -1,0 +1,6 @@
+framework module Pods_Slownik_RymowTests {
+  umbrella header "Pods-Slownik RymowTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
