@@ -19,8 +19,10 @@
 		440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */; };
 		440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633331CA54B0C00DBBFDF /* Reachibility.swift */; };
 		440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */; };
+		441374361E06B8A200107B09 /* FindRhymeDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441374351E06B8A200107B09 /* FindRhymeDataHelper.swift */; };
+		441374381E06BA0F00107B09 /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441374371E06BA0F00107B09 /* DBError.swift */; };
+		442F1B591E06AFC30021CFF7 /* DBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F1B581E06AFC30021CFF7 /* DBConnection.swift */; };
 		447241D01D8B2DC200E21F18 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447241CF1D8B2DC200E21F18 /* Alamofire.framework */; };
-		44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */; };
 		44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */; };
 		44A9BB761CA55C5A0094F4B8 /* RhymeDefinitionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */; };
 		44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */; };
@@ -28,6 +30,7 @@
 		44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */; };
 		44A9BB811CA6F7600094F4B8 /* RhymeFinderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */; };
 		44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */; };
+		44E0854F1E0AC4B300EE3FDB /* db-fts-reversed.db in Resources */ = {isa = PBXBuildFile; fileRef = 44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */; };
 		AD2022CA1F0C9C14F7AFB066 /* Pods_Slownik_Rymow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */; };
 		E6D3A8E8856EFD7DF7BD0CC2 /* Pods_Slownik_RymowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AEFC47CF700C4587C1717C9 /* Pods_Slownik_RymowTests.framework */; };
 /* End PBXBuildFile section */
@@ -60,8 +63,10 @@
 		440633301CA5497400DBBFDF /* MainViewController+TableDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TableDelegate.swift"; sourceTree = "<group>"; };
 		440633331CA54B0C00DBBFDF /* Reachibility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		440633351CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		441374351E06B8A200107B09 /* FindRhymeDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindRhymeDataHelper.swift; sourceTree = "<group>"; };
+		441374371E06BA0F00107B09 /* DBError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
+		442F1B581E06AFC30021CFF7 /* DBConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBConnection.swift; sourceTree = "<group>"; };
 		447241CF1D8B2DC200E21F18 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/Slownik_Rymow-cnsgfszpuyfaqvbqzphigjtvmspq/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
-		44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderService.swift; sourceTree = "<group>"; };
 		44A9BB731CA55C490094F4B8 /* RhymeFinderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderModel.swift; sourceTree = "<group>"; };
 		44A9BB751CA55C5A0094F4B8 /* RhymeDefinitionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionModel.swift; sourceTree = "<group>"; };
 		44A9BB791CA5E2B60094F4B8 /* AppErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 		44A9BB7E1CA6F7130094F4B8 /* RhymeDefinitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeDefinitionManager.swift; sourceTree = "<group>"; };
 		44A9BB801CA6F7600094F4B8 /* RhymeFinderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhymeFinderManager.swift; sourceTree = "<group>"; };
 		44A9BB841CA6FDA40094F4B8 /* AlertViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewFactory.swift; sourceTree = "<group>"; };
+		44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "db-fts-reversed.db"; sourceTree = "<group>"; };
 		543CD6203F0D2848356C0809 /* Pods_Slownik_Rymow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slownik_Rymow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57189ECAEC12608704AAFD96 /* Pods-Slownik Rymow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.debug.xcconfig"; sourceTree = "<group>"; };
 		6F382ECA451A27BBA2583DAB /* Pods-Slownik Rymow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slownik Rymow.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slownik Rymow/Pods-Slownik Rymow.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */,
+				44E0854E1E0AC4B300EE3FDB /* db-fts-reversed.db */,
 				0A2A69D11AC02E6500D6BDA9 /* Slownik RymowTests */,
 				0A2A69BA1AC02E6500D6BDA9 /* Products */,
 				14067D00E9F788DC6DE5A959 /* Pods */,
@@ -120,6 +127,7 @@
 		0A2A69BB1AC02E6500D6BDA9 /* Slownik Rymow */ = {
 			isa = PBXGroup;
 			children = (
+				442F1B571E06AF860021CFF7 /* Database */,
 				0A2A69C21AC02E6500D6BDA9 /* Main.storyboard */,
 				4406332B1CA5475500DBBFDF /* Model */,
 				4406332C1CA5476D00DBBFDF /* View */,
@@ -210,10 +218,19 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		442F1B571E06AF860021CFF7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				442F1B581E06AFC30021CFF7 /* DBConnection.swift */,
+				441374351E06B8A200107B09 /* FindRhymeDataHelper.swift */,
+				441374371E06BA0F00107B09 /* DBError.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		44A9BB701CA55BBA0094F4B8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				44A9BB711CA55BFB0094F4B8 /* RhymeFinderService.swift */,
 				44A9BB7B1CA6A7A50094F4B8 /* RhymeDefinitionService.swift */,
 			);
 			path = Service;
@@ -289,7 +306,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Michał Buczek";
 				TargetAttributes = {
 					0A2A69B81AC02E6500D6BDA9 = {
@@ -331,6 +348,7 @@
 				0A2A69C41AC02E6500D6BDA9 /* Main.storyboard in Resources */,
 				0A2A69C91AC02E6500D6BDA9 /* LaunchScreen.xib in Resources */,
 				0A2A69C61AC02E6500D6BDA9 /* Images.xcassets in Resources */,
+				44E0854F1E0AC4B300EE3FDB /* db-fts-reversed.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +389,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		A0D199E4D7000E0725A0677F /* [CP] Embed Pods Frameworks */ = {
@@ -416,7 +434,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		F9C0DAE6E8A75959F89DC592 /* [CP] Copy Pods Resources */ = {
@@ -441,7 +459,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441374361E06B8A200107B09 /* FindRhymeDataHelper.swift in Sources */,
 				4406332F1CA5492400DBBFDF /* MainViewController+DataSource.swift in Sources */,
+				442F1B591E06AFC30021CFF7 /* DBConnection.swift in Sources */,
 				44A9BB7F1CA6F7130094F4B8 /* RhymeDefinitionManager.swift in Sources */,
 				440633361CA54E9F00DBBFDF /* MainViewController+TextFieldDelegate.swift in Sources */,
 				44A9BB741CA55C490094F4B8 /* RhymeFinderModel.swift in Sources */,
@@ -449,6 +469,7 @@
 				0A2A69C11AC02E6500D6BDA9 /* MainViewController.swift in Sources */,
 				0A2A69DF1AC03DD300D6BDA9 /* BorderButtonView.swift in Sources */,
 				440633311CA5497400DBBFDF /* MainViewController+TableDelegate.swift in Sources */,
+				441374381E06BA0F00107B09 /* DBError.swift in Sources */,
 				44A9BB7C1CA6A7A50094F4B8 /* RhymeDefinitionService.swift in Sources */,
 				44A9BB851CA6FDA40094F4B8 /* AlertViewFactory.swift in Sources */,
 				0A2A69BF1AC02E6500D6BDA9 /* AppDelegate.swift in Sources */,
@@ -456,7 +477,6 @@
 				440633341CA54B0C00DBBFDF /* Reachibility.swift in Sources */,
 				0AB091341ACAF7AE005F1ABA /* BorderTextField.swift in Sources */,
 				44A9BB7A1CA5E2B60094F4B8 /* AppErrors.swift in Sources */,
-				44A9BB721CA55BFB0094F4B8 /* RhymeFinderService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +556,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -576,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -598,7 +618,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "Slownik Rymow/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -622,7 +642,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				INFOPLIST_FILE = "Slownik Rymow/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michalbuczek.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

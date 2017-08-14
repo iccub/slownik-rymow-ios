@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet var rhymeSortOrderSegmentedControl: UISegmentedControl!
     @IBOutlet var inputWord: BorderTextField!
     @IBOutlet var searchRhymeButton: BorderButtonView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var foundRhymes = [FoundRhyme]()
     let textCellIdentifier = "TextCell"
@@ -52,48 +53,70 @@ class MainViewController: UIViewController {
         rhymeCountLabel.text = "\(Int(sender.value))"
     }
     
-    @IBAction func searchForRhymes(_ sender: AnyObject) {
+    @IBAction func inputWordEditingDidEnd(_ sender: UITextField) {
+        findRhymes()
+    }
+    
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        //Check to not trigger findRhyme() method twice
+        if !inputWord.isFirstResponder {
+            findRhymes()
+        } else {
+            self.inputWord.resignFirstResponder()
+        }
+    }
+    
+    func findRhymes() {
         self.inputWord.resignFirstResponder()
         guard inputWord.text?.isEmpty == false else {
             return
         }
         
         clearRhymesTable()
-        alertFactory?.showLoadingAlert(arePreciseRhymesBeingSearched())
+        activityIndicator.startAnimating()
         
-        rhymeFinderManager.getRhymesWithParameters(SearchParameters(word: self.inputWord.text!.lowercased(), sortMethod: selectedSortOrder(), rhymePrecision: selectedRhymePrecision(), rhymeLenght: Int(self.rhymeCountStepper.value))) {
-            status in
+        DispatchQueue.global().async {
+            let searchParameters = SearchParameters(word: self.inputWord.text!.lowercased(),
+                                                    sortMethod: self.selectedSortOrder(),
+                                                    rhymePrecision: self.selectedRhymePrecision(),
+                                                    rhymeLenght: Int(self.rhymeCountStepper.value))
             
-            switch status {
-            case .failure(let error):
-                self.dismiss(animated: true) {
-                    self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercased())
+            self.rhymeFinderManager.findRhymes(with: searchParameters) { status in
+                
+                switch status {
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
+                        self.alertFactory?.showErrorAlert(error, word: self.inputWord.text!.lowercased())
+                    }
+                    
+                case .success(let foundRhymes):
+                    DispatchQueue.main.async {
+                        self.foundRhymes = foundRhymes
+                        self.tableView.reloadData()
+                        self.activityIndicator.stopAnimating()
+                    }
                 }
-            case .success(let foundRhymesList):
-                self.foundRhymes = foundRhymesList
-                self.tableView.reloadData()
-                self.dismiss(animated: true, completion: nil)
             }
-            
         }
     }
     
     func clearRhymesTable() {
-        foundRhymes = [String]()
+        foundRhymes = []
         tableView.reloadData()
     }
     
     //MARK: - Search parameters
     
     func arePreciseRhymesBeingSearched() -> Bool {
-        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecision.PreciseRhymes.segmentedControlIndex
+        return rhymePrecisionSegmentedControl.selectedSegmentIndex == 0
     }
     
-    func selectedRhymePrecision() -> String {
-        return rhymePrecisionSegmentedControl.selectedSegmentIndex == RhymePrecision.PreciseRhymes.segmentedControlIndex ? RhymePrecision.PreciseRhymes.parameterValue : RhymePrecision.NonPreciseRhymes.parameterValue
+    func selectedRhymePrecision() -> RhymePrecision {
+        return rhymePrecisionSegmentedControl.selectedSegmentIndex == 0 ? .precise : .nonPrecise
     }
     
-    func selectedSortOrder() -> String {
-        return rhymeSortOrderSegmentedControl.selectedSegmentIndex == SortOrder.Alphabetical.segmentedControlIndex ? SortOrder.Alphabetical.parameterValue : SortOrder.Random.parameterValue
+    func selectedSortOrder() -> SortOrder {
+        return rhymeSortOrderSegmentedControl.selectedSegmentIndex == 0 ? .alphabetical : .random
     }
 }

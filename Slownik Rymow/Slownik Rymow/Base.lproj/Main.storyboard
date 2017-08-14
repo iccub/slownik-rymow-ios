@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HWL-la-nt0">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HWL-la-nt0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rodzaj rymów" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="CX7-mP-LfG">
+                                <rect key="frame" x="16" y="114.5" width="108" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-7t-OWY">
+                                <rect key="frame" x="178" y="110" width="181" height="29"/>
                                 <segments>
                                     <segment title="Dokładne"/>
                                     <segment title="Niedokładne"/>
@@ -32,11 +38,13 @@
                                 <color key="tintColor" red="0.93308627605438232" green="0.54225021600723267" blue="0.068667367100715637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kolejność" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-aP-ec5">
+                                <rect key="frame" x="16" y="150.5" width="74" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SPr-JK-IqO">
+                                <rect key="frame" x="178" y="146" width="181" height="29"/>
                                 <segments>
                                     <segment title="A-Z"/>
                                     <segment title="Losowo"/>
@@ -44,17 +52,20 @@
                                 <color key="tintColor" red="0.93308627605438232" green="0.54225021600723267" blue="0.068667367100715637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Długość rymu" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="eKb-LK-XAX">
+                                <rect key="frame" x="16" y="186.5" width="106" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="2" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="oUn-8z-3dP">
+                                <rect key="frame" x="265" y="182" width="94" height="29"/>
                                 <color key="tintColor" red="0.93308627605438232" green="0.54225021600723267" blue="0.068667367100715637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="rhymeCountStepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VMe-cd-c8R"/>
                                 </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SZj-xR-qlc" customClass="BorderButtonView" customModule="Slownik_Rymow" customModuleProvider="target">
+                                <rect key="frame" x="16" y="219" width="343" height="34"/>
                                 <state key="normal" title="Szukaj"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
@@ -62,15 +73,17 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="searchForRhymes:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cUD-Nr-xd7"/>
+                                    <action selector="searchButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RlO-7j-seu"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Lh-Gt-dWi">
+                                <rect key="frame" x="212" y="185.5" width="11" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz słowo do zrymowania" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="549-VS-c06" customClass="BorderTextField" customModule="Slownik_Rymow" customModuleProvider="target">
+                                <rect key="frame" x="16" y="72" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="search"/>
                                 <userDefinedRuntimeAttributes>
@@ -79,24 +92,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="searchForRhymes:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="n2j-0d-bgj"/>
+                                    <action selector="inputWordEditingDidEnd:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ong-As-obX"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-ih-xkl">
+                                <rect key="frame" x="132" y="114.5" width="38" height="20.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qwW-oq-Hjn">
+                                <rect key="frame" x="16" y="261" width="343" height="398"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" textLabel="hPA-fb-FOK" style="IBUITableViewCellStyleDefault" id="JwE-po-Txd">
                                         <rect key="frame" x="0.0" y="22" width="343" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JwE-po-Txd" id="dwi-lO-PFg">
-                                            <frame key="frameInset" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hPA-fb-FOK">
-                                                    <frame key="frameInset" minX="15" width="313" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="313" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,6 +123,9 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NS9-xh-lfx">
+                                <rect key="frame" x="177.5" y="423.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -123,6 +141,7 @@
                             <constraint firstItem="qwW-oq-Hjn" firstAttribute="top" secondItem="SZj-xR-qlc" secondAttribute="bottom" constant="8" symbolic="YES" id="78Z-WC-rsY"/>
                             <constraint firstItem="SZj-xR-qlc" firstAttribute="top" secondItem="oUn-8z-3dP" secondAttribute="bottom" constant="8" symbolic="YES" id="7xi-Rg-s95"/>
                             <constraint firstItem="549-VS-c06" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="8r3-Bo-Zj9"/>
+                            <constraint firstItem="NS9-xh-lfx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Csu-7F-ZJV"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qwW-oq-Hjn" secondAttribute="bottom" constant="8" symbolic="YES" id="FjE-oQ-mnI"/>
                             <constraint firstItem="Zw4-ih-xkl" firstAttribute="leading" secondItem="CX7-mP-LfG" secondAttribute="trailing" constant="8" symbolic="YES" id="FpR-JK-TfP"/>
                             <constraint firstItem="Zw4-ih-xkl" firstAttribute="centerY" secondItem="CX7-mP-LfG" secondAttribute="centerY" id="GVv-05-CIT"/>
@@ -154,31 +173,33 @@
                             <constraint firstItem="oUn-8z-3dP" firstAttribute="top" secondItem="SPr-JK-IqO" secondAttribute="bottom" constant="8" symbolic="YES" id="t1n-hi-LOh"/>
                             <constraint firstItem="oUn-8z-3dP" firstAttribute="leading" secondItem="2Lh-Gt-dWi" secondAttribute="trailing" constant="8" symbolic="YES" id="tm6-4a-R2W"/>
                             <constraint firstItem="SPr-JK-IqO" firstAttribute="top" secondItem="PHi-7t-OWY" secondAttribute="bottom" constant="8" symbolic="YES" id="vB1-li-CD5"/>
+                            <constraint firstItem="NS9-xh-lfx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.3" id="wad-dB-5KN"/>
                             <constraint firstItem="eKb-LK-XAX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xfC-gI-LyF"/>
                             <constraint firstItem="549-VS-c06" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zHO-M6-lIz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="haK-Y7-Zpb"/>
-                                <exclude reference="sYg-7N-Gxo"/>
                                 <exclude reference="3KU-G6-LEO"/>
                                 <exclude reference="bgt-Mt-Nyt"/>
-                                <exclude reference="4gl-i6-Tyw"/>
-                                <exclude reference="5FR-xc-rCc"/>
-                                <exclude reference="Ynu-UJ-kWl"/>
-                                <exclude reference="lQP-Pd-62a"/>
-                                <exclude reference="QrL-z2-wpH"/>
                                 <exclude reference="2FU-6t-bfL"/>
                                 <exclude reference="p8Q-b0-iwU"/>
                                 <exclude reference="rFy-J8-SdY"/>
+                                <exclude reference="4gl-i6-Tyw"/>
+                                <exclude reference="5FR-xc-rCc"/>
+                                <exclude reference="Ynu-UJ-kWl"/>
+                                <exclude reference="QrL-z2-wpH"/>
+                                <exclude reference="lQP-Pd-62a"/>
+                                <exclude reference="h8R-Ra-2Vq"/>
+                                <exclude reference="haK-Y7-Zpb"/>
+                                <exclude reference="sYg-7N-Gxo"/>
                                 <exclude reference="3ZC-xa-85B"/>
                                 <exclude reference="tm6-4a-R2W"/>
-                                <exclude reference="h8R-Ra-2Vq"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Słownik Rymów" id="t8v-qo-VNP"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="NS9-xh-lfx" id="GLb-xq-Roc"/>
                         <outlet property="inputWord" destination="549-VS-c06" id="154-lz-AvJ"/>
                         <outlet property="rhymeCountLabel" destination="2Lh-Gt-dWi" id="5q0-mh-yR3"/>
                         <outlet property="rhymeCountStepper" destination="oUn-8z-3dP" id="NV8-p3-IeY"/>

@@ -9,15 +9,14 @@
 import Foundation
 
 typealias FoundRhyme = String
-typealias SearchParam = (segmentedControlIndex: Int, parameterValue: String)
-typealias SearchParameters = (word: String, sortMethod: String, rhymePrecision: String, rhymeLenght: Int)
+typealias SearchParameters = (word: String, sortMethod: SortOrder, rhymePrecision: RhymePrecision, rhymeLenght: Int)
 
-struct RhymePrecision {
-    static let PreciseRhymes = SearchParam(segmentedControlIndex: 0, parameterValue: "D")
-    static let NonPreciseRhymes = SearchParam(segmentedControlIndex: 1, parameterValue: "N")
+enum RhymePrecision {
+    case precise
+    case nonPrecise
 }
 
-struct SortOrder {
-    static let Alphabetical = SearchParam(segmentedControlIndex: 0, parameterValue: "A")
-    static let Random = SearchParam(segmentedControlIndex: 1, parameterValue: "R")
+enum SortOrder {
+    case alphabetical
+    case random
 }

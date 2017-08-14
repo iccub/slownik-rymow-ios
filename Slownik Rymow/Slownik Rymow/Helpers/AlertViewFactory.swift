@@ -28,6 +28,9 @@ struct AlertViewFactory {
         case .noRhymesFound:
             title = "Brak wyników"
             message = "Brak rymów do słowa \(word)"
+        case .sqlError:
+            title = "Błąd bazy danych"
+            message = "Podczas zapytania do bazy danych wystapił błąd. Sprawdź czy wpisujesz prawidłowy wyraz i spróbuj ponownie"
         }
         
         let alert = buildAlert(title, msg: message)
