@@ -1,0 +1,1 @@
+slownik_rymow/Resources/db-fts5.db filter=lfs diff=lfs merge=lfs -text
