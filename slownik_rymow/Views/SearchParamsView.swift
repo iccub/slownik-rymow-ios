@@ -63,6 +63,9 @@ struct SearchParamsView: View {
           self.searchInput = polishCharactersWord
         }
       }
+      .onSubmit {
+        findRhymesAction()
+      }
   }
   
   private var rhymeTypeSection: some View {
