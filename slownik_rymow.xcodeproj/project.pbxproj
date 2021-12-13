@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,7 +51,7 @@
 		0AA3BB9823CB38E200EEE3EF /* SearchParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
 		0AADC85323CB42E800EE7381 /* WordsDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsDatabase.swift; sourceTree = "<group>"; };
 		0AADC85523CB42FC00EE7381 /* SingleColumnDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleColumnDatabase.swift; sourceTree = "<group>"; };
-		0AADC85D23CB96DE00EE7381 /* db-fts5.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = "db-fts5.db"; sourceTree = "<group>"; };
+		0AADC85D23CB96DE00EE7381 /* db-fts5.db */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-fts5.db"; sourceTree = "<group>"; };
 		0AB7BF7D23DDF88200A29A20 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0AB8253A23C7E03800FAD1D8 /* SJPParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJPParser.swift; sourceTree = "<group>"; };
 		0AE8CD8B22FA0100008E14F8 /* FoundRhymeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundRhymeRow.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 				};
 			};
 			buildConfigurationList = 0A0EE8DB22F723E1001B52E0 /* Build configuration list for PBXProject "slownik_rymow" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
