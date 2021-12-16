@@ -487,7 +487,7 @@
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.12.2;
+				minimumVersion = 0.13.1;
 			};
 		};
 		4454EE7D26403AD500D2F97B /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
