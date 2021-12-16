@@ -9,41 +9,32 @@
 import Foundation
 import Combine
 
+@MainActor
 class SJPParser: ObservableObject {
     
-    @Published var showAlert = false
-    @Published var wordDefinition = ""
+  @Published var showAlert = false
+  @Published var wordDefinition = ""
     
-    var cancellable: AnyCancellable?
-    
-    deinit {
-        cancellable?.cancel()
-    }
-    
-    func parse(word: String) {
-        guard let escapedRhymeDefinitionURL = "https://sjp.pl//\(word)"
+  func parse(word: String) {
+    guard let escapedRhymeDefinitionURL = "https://sjp.pl//\(word)"
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-            let url = URL(string: escapedRhymeDefinitionURL) else {
-                return
-        }
-        
-        let session = URLSession.shared
-        
-        cancellable = session.dataTaskPublisher(for: url)
-            .map { String(decoding: $0.data, as: UTF8.self) } //parse further
-            .map { try? self.formatHTMLToDescription($0, word: word) }
-            .replaceError(with: "")
-            .eraseToAnyPublisher()
-            .receive(on: RunLoop.main)
-            .sink {
-                guard let data = $0 else {
-                    return
-                }
-                                
-                self.wordDefinition = data
-                self.showAlert = true
-            }
+          let url = URL(string: escapedRhymeDefinitionURL) else {
+            return
+          }
+    
+    let session = URLSession.shared
+    
+    Task.init {
+      do {
+        let (data, _) = try await session.data(from: url)
+        let decodedData = try self.formatHTMLToDescription(.init(decoding: data, as: UTF8.self), word: word)
+        wordDefinition = decodedData
+        showAlert = true
+      } catch {
+        // add error
+      }
     }
+  }
     
     func formatHTMLToDescription(_ html: String, word: String) throws -> String {
         var resultString = ""
