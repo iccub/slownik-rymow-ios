@@ -9,11 +9,11 @@
 import Foundation
 
 extension String {
-    /// Returns a string that contains only polish characters.
-    /// This helper also removes all whitespace characters, it is meant to return a single word.
-    var wordWithPolishCharactersOnly: String {
-        let allowedLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĄĘÓŃŚĆŻŹŁąęóńśćżźł"
-        
-        return self.filter { allowedLetters.contains($0) }
-    }
+  /// Returns a string that contains only polish characters.
+  /// This helper also removes all whitespace characters, it is meant to return a single word.
+  var wordWithPolishCharactersOnly: String {
+    let allowedLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzĄĘÓŃŚĆŻŹŁąęóńśćżźł"
+    
+    return self.filter { allowedLetters.contains($0) }
+  }
 }

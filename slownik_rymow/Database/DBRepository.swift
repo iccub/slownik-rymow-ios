@@ -74,7 +74,7 @@ struct DBRepository {
     //Letters 'u' and 'ó' sound the same phonetically. Checking both possibilities.
     if inputRhymeReversed.contains("u") || inputRhymeReversed.contains("ó") {
       let wordWithUSwapped = inputRhymeReversed.contains("u") ?
-        inputRhymeReversed.replacingOccurrences(of: "u", with: "ó") : inputRhymeReversed.replacingOccurrences(of: "ó", with: "u")
+      inputRhymeReversed.replacingOccurrences(of: "u", with: "ó") : inputRhymeReversed.replacingOccurrences(of: "ó", with: "u")
       
       query += appendMatchStatement(wordToCompare: wordWithUSwapped)
     }
@@ -94,7 +94,7 @@ struct DBRepository {
         // FIXME: DRY u/ó code
         if inputRhymeReversed.contains("u") || inputRhymeReversed.contains("ó") {
           let wordWithUSwapped = inputRhymeReversed.contains("u") ?
-            inputRhymeReversed.replacingOccurrences(of: "u", with: "ó") : inputRhymeReversed.replacingOccurrences(of: "ó", with: "u")
+          inputRhymeReversed.replacingOccurrences(of: "u", with: "ó") : inputRhymeReversed.replacingOccurrences(of: "ó", with: "u")
           
           query += appendMatchStatement(wordToCompare: consonant + wordWithUSwapped)
         }
@@ -122,7 +122,7 @@ struct DBRepository {
             // FIXME: DRY u/ó code
             if newWord.contains("u") || newWord.contains("ó") {
               let wordWithUSwapped = newWord.contains("u") ?
-                newWord.replacingOccurrences(of: "u", with: "ó") : newWord.replacingOccurrences(of: "ó", with: "u")
+              newWord.replacingOccurrences(of: "u", with: "ó") : newWord.replacingOccurrences(of: "ó", with: "u")
               
               query += appendMatchStatement(wordToCompare: wordWithUSwapped)
             }

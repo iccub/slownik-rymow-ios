@@ -117,7 +117,7 @@ struct SearchParamsView: View {
         .accentColor(Color.white)
         .cornerRadius(5)
     })
-    .disabled(viewModel.searchPending || searchInput.count < 2)
+      .disabled(viewModel.searchPending || searchInput.count < 2)
   }
   
   // MARK: - Actions
