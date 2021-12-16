@@ -83,7 +83,7 @@ class SJPParser: ObservableObject {
             throw AppErrors.parseError
         }
         
-        return paragraph.substring(to: closingParagraphRange.lowerBound)
+      return String(paragraph.prefix(upTo: closingParagraphRange.lowerBound))
     }
     
     /** There are 2 types of definitions in sjp.pl website:
