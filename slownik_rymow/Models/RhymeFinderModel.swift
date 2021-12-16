@@ -9,25 +9,25 @@
 import Foundation
 import Combine
 
+@MainActor
 class RhymeFinderModel: ObservableObject {
   @Published var searchPending = false
   @Published var foundRhymesState: FoundRhymesState = .initial
   
   private let repository = DBRepository()
-  private var cancellable: AnyCancellable?
-  
-  deinit {
-    cancellable?.cancel()
-  }
   
   func findRhymes(with parameters: SearchParameters) {
+    defer { searchPending = false }
+    
     searchPending = true
-    cancellable = repository.findRhymes(with: parameters)
-      .replaceError(with: [])
-      .receive(on: RunLoop.main)
-      .sink { [self] in
-        foundRhymesState = $0.isEmpty ? .noResults : .found(rhymes: $0)
-        searchPending = false
+    
+    Task.init {
+      do {
+        let foundRhymes = try await repository.findRhymes(with: parameters)
+        foundRhymesState = foundRhymes.isEmpty ? .noResults : .found(rhymes: foundRhymes)
+      } catch {
+        foundRhymesState = .noResults
       }
+    }
   }
 }

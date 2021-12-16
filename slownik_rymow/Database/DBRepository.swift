@@ -18,43 +18,38 @@ struct DBRepository {
     self.database = database
   }
   
-  func findRhymes(with parameters: SearchParameters) -> AnyPublisher<[Rhyme], Error> {
-    Future<[Rhyme], Error> { promise in
-      guard let db = self.database.connection else {
-        return promise(.failure(DBError.datastoreConnectionError))
-      }
-      
-      self.queue.async {
-        let preparedQuery = self.prepareQueryStatement(with: parameters)
-        
-        var foundRhymes = [Rhyme]()
-        
-        do {
-          let queryResults = try db.prepare(preparedQuery)
-          
-          // Do nothing but soak FTS error eventually.
-          // SQLite.swift 0.12.2 force throws error when incorrect FTS syntax is used.
-          // See `FailableIterator` for more details
-          _ = try queryResults.failableNext()
-          
-          for row in queryResults {
-            for (word, _) in queryResults.columnNames.enumerated() {
-              if let row = row[word] as? String {
-                // Reversing results to show user words in proper order
-                let rowReversed = String(row.reversed())
-                
-                foundRhymes.append(Rhyme(id: rowReversed))
-              }
-            }
-          }
-        } catch {
-          promise(.failure(DBError.sqlStatementError))
-        }
-        
-        return promise(.success(foundRhymes))
-      }
+  func findRhymes(with parameters: SearchParameters) async throws -> [Rhyme] {
+    guard let db = self.database.connection else {
+      throw DBError.datastoreConnectionError
     }
-    .eraseToAnyPublisher()
+    
+    let preparedQuery = self.prepareQueryStatement(with: parameters)
+    
+    var foundRhymes = [Rhyme]()
+    
+    do {
+      let queryResults = try db.prepare(preparedQuery)
+      
+      // Do nothing but soak FTS error eventually.
+      // SQLite.swift 0.12.2 force throws error when incorrect FTS syntax is used.
+      // See `FailableIterator` for more details
+      _ = try queryResults.failableNext()
+      
+      for row in queryResults {
+        for (word, _) in queryResults.columnNames.enumerated() {
+          if let row = row[word] as? String {
+            // Reversing results to show user words in proper order
+            let rowReversed = String(row.reversed())
+            
+            foundRhymes.append(Rhyme(id: rowReversed))
+          }
+        }
+      }
+    } catch {
+      throw DBError.sqlStatementError
+    }
+    
+    return foundRhymes
   }
   
   /** Query is prepared by hand. I decided to not use type-safe features of sqlite.swift because the query is pretty complicated..
