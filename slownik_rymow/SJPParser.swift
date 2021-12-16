@@ -117,7 +117,6 @@ class SJPParser: ObservableObject {
     return text.replacingOccurrences(of: "<br />", with: "\n", options: NSString.CompareOptions.literal, range: nil)
       .replacingOccurrences(of: "&nbsp", with: "", options: NSString.CompareOptions.literal, range: nil)
       .replacingOccurrences(of: "&quot;", with: "\"", options: NSString.CompareOptions.literal, range: nil)
-    
   }
 }
 
