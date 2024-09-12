@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum FoundRhymesState {
+public enum FoundRhymesState {
   /// Initial state, user hasn't tapped on search button yet.
   case initial
   /// At least 1 rhyme was found.

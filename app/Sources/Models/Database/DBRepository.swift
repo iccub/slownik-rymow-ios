@@ -10,9 +10,13 @@ import Foundation
 import Combine
 import SQLite
 
-struct DBRepository {
+public struct DBRepository {
   let database: SingleColumnDatabase
   private let queue = DispatchQueue(label: "findrhyme")
+  
+  public init() {
+    self.database = WordsDatabase()
+  }
   
   init(database: SingleColumnDatabase = WordsDatabase()) {
     self.database = database

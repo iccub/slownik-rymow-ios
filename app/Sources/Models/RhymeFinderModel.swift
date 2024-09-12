@@ -10,13 +10,15 @@ import Foundation
 import Combine
 
 @MainActor
-class RhymeFinderModel: ObservableObject {
-  @Published var searchPending = false
-  @Published var foundRhymesState: FoundRhymesState = .initial
+public class RhymeFinderModel: ObservableObject {
+  @Published public var searchPending = false
+  @Published public var foundRhymesState: FoundRhymesState = .initial
   
   private let repository = DBRepository()
   
-  func findRhymes(with parameters: SearchParameters) {
+  public init() { }
+  
+  public func findRhymes(with parameters: SearchParameters) {
     defer { searchPending = false }
     
     searchPending = true

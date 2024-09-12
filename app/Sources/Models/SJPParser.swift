@@ -10,12 +10,14 @@ import Foundation
 import Combine
 
 @MainActor
-class SJPParser: ObservableObject {
+public class SJPParser: ObservableObject {
   
-  @Published var showAlert = false
-  @Published var wordDefinition = ""
+  @Published public var showAlert = false
+  @Published public var wordDefinition = ""
   
-  func parse(word: String) {
+  public init() { }
+  
+  public func parse(word: String) {
     guard let escapedRhymeDefinitionURL = "https://sjp.pl//\(word)"
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
           let url = URL(string: escapedRhymeDefinitionURL) else {

@@ -9,7 +9,7 @@
 import Foundation
 import SQLite
 
-protocol SingleColumnDatabase {
+public protocol SingleColumnDatabase {
   var connection: Connection? { get }
   var tableName: String { get }
   var columnName: String { get }

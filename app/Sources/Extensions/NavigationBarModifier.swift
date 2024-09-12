@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-struct NavigationBarModifier: ViewModifier {
+public struct NavigationBarModifier: ViewModifier {
   
   private let backgroundColor: Color
   
-  init(backgroundColor: Color?, textColor: Color) {
+  public init(backgroundColor: Color?, textColor: Color) {
     self.backgroundColor = backgroundColor ?? .clear
     let coloredAppearance = UINavigationBarAppearance()
     coloredAppearance.configureWithTransparentBackground()
@@ -26,7 +26,7 @@ struct NavigationBarModifier: ViewModifier {
     UINavigationBar.appearance().tintColor = textColor.uiColor
   }
   
-  func body(content: Content) -> some View {
+  public func body(content: Content) -> some View {
     ZStack{
       content
       VStack {
@@ -41,7 +41,7 @@ struct NavigationBarModifier: ViewModifier {
   }
 }
 
-extension View {
+public extension View {
   
   func navigationBarColor(_ backgroundColor: Color?, textColor: Color) -> some View {
     self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, textColor: textColor))

@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import Models
 
 struct FoundRhymesListView: View {
   @Binding var foundRhymes: FoundRhymesState
