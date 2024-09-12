@@ -8,6 +8,9 @@
 
 import Foundation
 
-struct Rhyme: Identifiable {
-  var id: String
+public struct Rhyme: Identifiable {
+  public var id: String
+  public init(id: String) {
+    self.id = id
+  }
 }

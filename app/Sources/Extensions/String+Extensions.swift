@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension String {
+public extension String {
   /// Returns a string that contains only polish characters.
   /// This helper also removes all whitespace characters, it is meant to return a single word.
   var wordWithPolishCharactersOnly: String {

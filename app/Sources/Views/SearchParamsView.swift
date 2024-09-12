@@ -9,6 +9,8 @@
 import SwiftUI
 import Combine
 import Introspect
+import Models
+import Extensions
 
 struct SearchParamsView: View {
   @Environment(\.horizontalSizeClass) var horizontalSizeClass
